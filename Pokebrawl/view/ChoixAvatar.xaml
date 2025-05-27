@@ -1,0 +1,35 @@
+﻿<Page x:Class="Pokebrawl.view.ChoixAvatar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pokebrawl.view"
+        mc:Ignorable="d"
+        Title="ChoixAvatar" Height="450" Width="800">
+    <Grid Background="White">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+            <TextBlock Text="Choisissez votre avatar" FontSize="28" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <!-- 5 images d’avatars -->
+                <Border BorderThickness="3" Name="Avatar1Border" Margin="5">
+                    <Image Source="image/Caractere/Amarylis.png" Width="100" Height="100" MouseDown="Avatar_Click" Tag="1"/>
+                </Border>
+                <Border BorderThickness="3" Name="Avatar2Border" Margin="5">
+                    <Image Source="image/Caractere/Cynthia.png" Width="100" Height="100" MouseDown="Avatar_Click" Tag="2"/>
+                </Border>
+                <Border BorderThickness="3" Name="Avatar3Border" Margin="5">
+                    <Image Source="image/Caractere/N.png" Width="100" Height="100" MouseDown="Avatar_Click" Tag="3"/>
+                </Border>
+                <Border BorderThickness="3" Name="Avatar4Border" Margin="5">
+                    <Image Source="image/Caractere/Pierre.png" Width="100" Height="100" MouseDown="Avatar_Click" Tag="4"/>
+                </Border>
+                <Border BorderThickness="3" Name="Avatar5Border" Margin="5">
+                    <Image Source="image/Caractere/Tiplouf.png" Width="100" Height="100" MouseDown="Avatar_Click" Tag="5"/>
+                </Border>
+            </StackPanel>
+
+            <Button Content="Valider" Width="150" Height="40" Margin="20" Click="Valider_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

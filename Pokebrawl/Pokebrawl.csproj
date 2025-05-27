@@ -1,0 +1,1889 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="view\image\Caractere\Amarylis.png" />
+    <None Remove="view\image\Caractere\Cynthia.png" />
+    <None Remove="view\image\Caractere\N.png" />
+    <None Remove="view\image\Caractere\Pierre.png" />
+    <None Remove="view\image\Caractere\Sacha.png" />
+    <None Remove="view\image\Caractere\Tiplouf.png" />
+    <None Remove="view\image\Fond\dracollosse.png" />
+    <None Remove="view\image\Fond\Intro.jpg" />
+    <None Remove="view\image\Fond\Intro.png" />
+    <None Remove="view\image\Fond\Page intro.png" />
+    <None Remove="view\image\Fond\pc.png" />
+    <None Remove="view\image\Fond\PC2.png" />
+    <None Remove="view\image\Fond\poke-intro.png" />
+    <None Remove="view\image\Fond\Titre.png" />
+    <None Remove="view\image\Pokemon_asset\Back\001.png" />
+    <None Remove="view\image\Pokemon_asset\Back\002.png" />
+    <None Remove="view\image\Pokemon_asset\Back\003.png" />
+    <None Remove="view\image\Pokemon_asset\Back\004.png" />
+    <None Remove="view\image\Pokemon_asset\Back\005.png" />
+    <None Remove="view\image\Pokemon_asset\Back\006.png" />
+    <None Remove="view\image\Pokemon_asset\Back\007.png" />
+    <None Remove="view\image\Pokemon_asset\Back\008.png" />
+    <None Remove="view\image\Pokemon_asset\Back\009.png" />
+    <None Remove="view\image\Pokemon_asset\Back\010.png" />
+    <None Remove="view\image\Pokemon_asset\Back\011.png" />
+    <None Remove="view\image\Pokemon_asset\Back\012.png" />
+    <None Remove="view\image\Pokemon_asset\Back\013.png" />
+    <None Remove="view\image\Pokemon_asset\Back\014.png" />
+    <None Remove="view\image\Pokemon_asset\Back\015.png" />
+    <None Remove="view\image\Pokemon_asset\Back\016.png" />
+    <None Remove="view\image\Pokemon_asset\Back\017.png" />
+    <None Remove="view\image\Pokemon_asset\Back\018.png" />
+    <None Remove="view\image\Pokemon_asset\Back\019.png" />
+    <None Remove="view\image\Pokemon_asset\Back\020.png" />
+    <None Remove="view\image\Pokemon_asset\Back\021.png" />
+    <None Remove="view\image\Pokemon_asset\Back\022.png" />
+    <None Remove="view\image\Pokemon_asset\Back\023.png" />
+    <None Remove="view\image\Pokemon_asset\Back\024.png" />
+    <None Remove="view\image\Pokemon_asset\Back\025.png" />
+    <None Remove="view\image\Pokemon_asset\Back\026.png" />
+    <None Remove="view\image\Pokemon_asset\Back\027.png" />
+    <None Remove="view\image\Pokemon_asset\Back\028.png" />
+    <None Remove="view\image\Pokemon_asset\Back\029.png" />
+    <None Remove="view\image\Pokemon_asset\Back\030.png" />
+    <None Remove="view\image\Pokemon_asset\Back\031.png" />
+    <None Remove="view\image\Pokemon_asset\Back\032.png" />
+    <None Remove="view\image\Pokemon_asset\Back\033.png" />
+    <None Remove="view\image\Pokemon_asset\Back\034.png" />
+    <None Remove="view\image\Pokemon_asset\Back\035.png" />
+    <None Remove="view\image\Pokemon_asset\Back\036.png" />
+    <None Remove="view\image\Pokemon_asset\Back\037.png" />
+    <None Remove="view\image\Pokemon_asset\Back\038.png" />
+    <None Remove="view\image\Pokemon_asset\Back\039.png" />
+    <None Remove="view\image\Pokemon_asset\Back\040.png" />
+    <None Remove="view\image\Pokemon_asset\Back\041.png" />
+    <None Remove="view\image\Pokemon_asset\Back\042.png" />
+    <None Remove="view\image\Pokemon_asset\Back\043.png" />
+    <None Remove="view\image\Pokemon_asset\Back\044.png" />
+    <None Remove="view\image\Pokemon_asset\Back\045.png" />
+    <None Remove="view\image\Pokemon_asset\Back\046.png" />
+    <None Remove="view\image\Pokemon_asset\Back\047.png" />
+    <None Remove="view\image\Pokemon_asset\Back\048.png" />
+    <None Remove="view\image\Pokemon_asset\Back\049.png" />
+    <None Remove="view\image\Pokemon_asset\Back\050.png" />
+    <None Remove="view\image\Pokemon_asset\Back\051.png" />
+    <None Remove="view\image\Pokemon_asset\Back\052.png" />
+    <None Remove="view\image\Pokemon_asset\Back\053.png" />
+    <None Remove="view\image\Pokemon_asset\Back\054.png" />
+    <None Remove="view\image\Pokemon_asset\Back\055.png" />
+    <None Remove="view\image\Pokemon_asset\Back\056.png" />
+    <None Remove="view\image\Pokemon_asset\Back\057.png" />
+    <None Remove="view\image\Pokemon_asset\Back\058.png" />
+    <None Remove="view\image\Pokemon_asset\Back\059.png" />
+    <None Remove="view\image\Pokemon_asset\Back\060.png" />
+    <None Remove="view\image\Pokemon_asset\Back\061.png" />
+    <None Remove="view\image\Pokemon_asset\Back\062.png" />
+    <None Remove="view\image\Pokemon_asset\Back\063.png" />
+    <None Remove="view\image\Pokemon_asset\Back\064.png" />
+    <None Remove="view\image\Pokemon_asset\Back\065.png" />
+    <None Remove="view\image\Pokemon_asset\Back\066.png" />
+    <None Remove="view\image\Pokemon_asset\Back\067.png" />
+    <None Remove="view\image\Pokemon_asset\Back\068.png" />
+    <None Remove="view\image\Pokemon_asset\Back\069.png" />
+    <None Remove="view\image\Pokemon_asset\Back\070.png" />
+    <None Remove="view\image\Pokemon_asset\Back\071.png" />
+    <None Remove="view\image\Pokemon_asset\Back\072.png" />
+    <None Remove="view\image\Pokemon_asset\Back\073.png" />
+    <None Remove="view\image\Pokemon_asset\Back\074.png" />
+    <None Remove="view\image\Pokemon_asset\Back\075.png" />
+    <None Remove="view\image\Pokemon_asset\Back\076.png" />
+    <None Remove="view\image\Pokemon_asset\Back\077.png" />
+    <None Remove="view\image\Pokemon_asset\Back\078.png" />
+    <None Remove="view\image\Pokemon_asset\Back\079.png" />
+    <None Remove="view\image\Pokemon_asset\Back\080.png" />
+    <None Remove="view\image\Pokemon_asset\Back\081.png" />
+    <None Remove="view\image\Pokemon_asset\Back\082.png" />
+    <None Remove="view\image\Pokemon_asset\Back\083.png" />
+    <None Remove="view\image\Pokemon_asset\Back\084.png" />
+    <None Remove="view\image\Pokemon_asset\Back\085.png" />
+    <None Remove="view\image\Pokemon_asset\Back\086.png" />
+    <None Remove="view\image\Pokemon_asset\Back\087.png" />
+    <None Remove="view\image\Pokemon_asset\Back\088.png" />
+    <None Remove="view\image\Pokemon_asset\Back\089.png" />
+    <None Remove="view\image\Pokemon_asset\Back\090.png" />
+    <None Remove="view\image\Pokemon_asset\Back\091.png" />
+    <None Remove="view\image\Pokemon_asset\Back\092.png" />
+    <None Remove="view\image\Pokemon_asset\Back\093.png" />
+    <None Remove="view\image\Pokemon_asset\Back\094.png" />
+    <None Remove="view\image\Pokemon_asset\Back\095.png" />
+    <None Remove="view\image\Pokemon_asset\Back\096.png" />
+    <None Remove="view\image\Pokemon_asset\Back\097.png" />
+    <None Remove="view\image\Pokemon_asset\Back\098.png" />
+    <None Remove="view\image\Pokemon_asset\Back\099.png" />
+    <None Remove="view\image\Pokemon_asset\Back\100.png" />
+    <None Remove="view\image\Pokemon_asset\Back\101.png" />
+    <None Remove="view\image\Pokemon_asset\Back\102.png" />
+    <None Remove="view\image\Pokemon_asset\Back\103.png" />
+    <None Remove="view\image\Pokemon_asset\Back\104.png" />
+    <None Remove="view\image\Pokemon_asset\Back\105.png" />
+    <None Remove="view\image\Pokemon_asset\Back\106.png" />
+    <None Remove="view\image\Pokemon_asset\Back\107.png" />
+    <None Remove="view\image\Pokemon_asset\Back\108.png" />
+    <None Remove="view\image\Pokemon_asset\Back\109.png" />
+    <None Remove="view\image\Pokemon_asset\Back\110.png" />
+    <None Remove="view\image\Pokemon_asset\Back\111.png" />
+    <None Remove="view\image\Pokemon_asset\Back\112.png" />
+    <None Remove="view\image\Pokemon_asset\Back\113.png" />
+    <None Remove="view\image\Pokemon_asset\Back\114.png" />
+    <None Remove="view\image\Pokemon_asset\Back\115.png" />
+    <None Remove="view\image\Pokemon_asset\Back\116.png" />
+    <None Remove="view\image\Pokemon_asset\Back\117.png" />
+    <None Remove="view\image\Pokemon_asset\Back\118.png" />
+    <None Remove="view\image\Pokemon_asset\Back\119.png" />
+    <None Remove="view\image\Pokemon_asset\Back\120.png" />
+    <None Remove="view\image\Pokemon_asset\Back\121.png" />
+    <None Remove="view\image\Pokemon_asset\Back\122.png" />
+    <None Remove="view\image\Pokemon_asset\Back\123.png" />
+    <None Remove="view\image\Pokemon_asset\Back\124.png" />
+    <None Remove="view\image\Pokemon_asset\Back\125.png" />
+    <None Remove="view\image\Pokemon_asset\Back\126.png" />
+    <None Remove="view\image\Pokemon_asset\Back\127.png" />
+    <None Remove="view\image\Pokemon_asset\Back\128.png" />
+    <None Remove="view\image\Pokemon_asset\Back\129.png" />
+    <None Remove="view\image\Pokemon_asset\Back\130.png" />
+    <None Remove="view\image\Pokemon_asset\Back\131.png" />
+    <None Remove="view\image\Pokemon_asset\Back\132.png" />
+    <None Remove="view\image\Pokemon_asset\Back\133.png" />
+    <None Remove="view\image\Pokemon_asset\Back\134.png" />
+    <None Remove="view\image\Pokemon_asset\Back\135.png" />
+    <None Remove="view\image\Pokemon_asset\Back\136.png" />
+    <None Remove="view\image\Pokemon_asset\Back\137.png" />
+    <None Remove="view\image\Pokemon_asset\Back\138.png" />
+    <None Remove="view\image\Pokemon_asset\Back\139.png" />
+    <None Remove="view\image\Pokemon_asset\Back\140.png" />
+    <None Remove="view\image\Pokemon_asset\Back\141.png" />
+    <None Remove="view\image\Pokemon_asset\Back\142.png" />
+    <None Remove="view\image\Pokemon_asset\Back\143.png" />
+    <None Remove="view\image\Pokemon_asset\Back\144.png" />
+    <None Remove="view\image\Pokemon_asset\Back\145.png" />
+    <None Remove="view\image\Pokemon_asset\Back\146.png" />
+    <None Remove="view\image\Pokemon_asset\Back\147.png" />
+    <None Remove="view\image\Pokemon_asset\Back\148.png" />
+    <None Remove="view\image\Pokemon_asset\Back\149.png" />
+    <None Remove="view\image\Pokemon_asset\Back\150.png" />
+    <None Remove="view\image\Pokemon_asset\Back\151.png" />
+    <None Remove="view\image\Pokemon_asset\Front\001.png" />
+    <None Remove="view\image\Pokemon_asset\Front\002.png" />
+    <None Remove="view\image\Pokemon_asset\Front\003.png" />
+    <None Remove="view\image\Pokemon_asset\Front\004.png" />
+    <None Remove="view\image\Pokemon_asset\Front\005.png" />
+    <None Remove="view\image\Pokemon_asset\Front\006.png" />
+    <None Remove="view\image\Pokemon_asset\Front\007.png" />
+    <None Remove="view\image\Pokemon_asset\Front\008.png" />
+    <None Remove="view\image\Pokemon_asset\Front\009.png" />
+    <None Remove="view\image\Pokemon_asset\Front\010.png" />
+    <None Remove="view\image\Pokemon_asset\Front\011.png" />
+    <None Remove="view\image\Pokemon_asset\Front\012.png" />
+    <None Remove="view\image\Pokemon_asset\Front\013.png" />
+    <None Remove="view\image\Pokemon_asset\Front\014.png" />
+    <None Remove="view\image\Pokemon_asset\Front\015.png" />
+    <None Remove="view\image\Pokemon_asset\Front\016.png" />
+    <None Remove="view\image\Pokemon_asset\Front\017.png" />
+    <None Remove="view\image\Pokemon_asset\Front\018.png" />
+    <None Remove="view\image\Pokemon_asset\Front\019.png" />
+    <None Remove="view\image\Pokemon_asset\Front\020.png" />
+    <None Remove="view\image\Pokemon_asset\Front\021.png" />
+    <None Remove="view\image\Pokemon_asset\Front\022.png" />
+    <None Remove="view\image\Pokemon_asset\Front\023.png" />
+    <None Remove="view\image\Pokemon_asset\Front\024.png" />
+    <None Remove="view\image\Pokemon_asset\Front\025.png" />
+    <None Remove="view\image\Pokemon_asset\Front\026.png" />
+    <None Remove="view\image\Pokemon_asset\Front\027.png" />
+    <None Remove="view\image\Pokemon_asset\Front\028.png" />
+    <None Remove="view\image\Pokemon_asset\Front\029.png" />
+    <None Remove="view\image\Pokemon_asset\Front\030.png" />
+    <None Remove="view\image\Pokemon_asset\Front\031.png" />
+    <None Remove="view\image\Pokemon_asset\Front\032.png" />
+    <None Remove="view\image\Pokemon_asset\Front\033.png" />
+    <None Remove="view\image\Pokemon_asset\Front\034.png" />
+    <None Remove="view\image\Pokemon_asset\Front\035.png" />
+    <None Remove="view\image\Pokemon_asset\Front\036.png" />
+    <None Remove="view\image\Pokemon_asset\Front\037.png" />
+    <None Remove="view\image\Pokemon_asset\Front\038.png" />
+    <None Remove="view\image\Pokemon_asset\Front\039.png" />
+    <None Remove="view\image\Pokemon_asset\Front\040.png" />
+    <None Remove="view\image\Pokemon_asset\Front\041.png" />
+    <None Remove="view\image\Pokemon_asset\Front\042.png" />
+    <None Remove="view\image\Pokemon_asset\Front\043.png" />
+    <None Remove="view\image\Pokemon_asset\Front\044.png" />
+    <None Remove="view\image\Pokemon_asset\Front\045.png" />
+    <None Remove="view\image\Pokemon_asset\Front\046.png" />
+    <None Remove="view\image\Pokemon_asset\Front\047.png" />
+    <None Remove="view\image\Pokemon_asset\Front\048.png" />
+    <None Remove="view\image\Pokemon_asset\Front\049.png" />
+    <None Remove="view\image\Pokemon_asset\Front\050.png" />
+    <None Remove="view\image\Pokemon_asset\Front\051.png" />
+    <None Remove="view\image\Pokemon_asset\Front\052.png" />
+    <None Remove="view\image\Pokemon_asset\Front\053.png" />
+    <None Remove="view\image\Pokemon_asset\Front\054.png" />
+    <None Remove="view\image\Pokemon_asset\Front\055.png" />
+    <None Remove="view\image\Pokemon_asset\Front\056.png" />
+    <None Remove="view\image\Pokemon_asset\Front\057.png" />
+    <None Remove="view\image\Pokemon_asset\Front\058.png" />
+    <None Remove="view\image\Pokemon_asset\Front\059.png" />
+    <None Remove="view\image\Pokemon_asset\Front\060.png" />
+    <None Remove="view\image\Pokemon_asset\Front\061.png" />
+    <None Remove="view\image\Pokemon_asset\Front\062.png" />
+    <None Remove="view\image\Pokemon_asset\Front\063.png" />
+    <None Remove="view\image\Pokemon_asset\Front\064.png" />
+    <None Remove="view\image\Pokemon_asset\Front\065.png" />
+    <None Remove="view\image\Pokemon_asset\Front\066.png" />
+    <None Remove="view\image\Pokemon_asset\Front\067.png" />
+    <None Remove="view\image\Pokemon_asset\Front\068.png" />
+    <None Remove="view\image\Pokemon_asset\Front\069.png" />
+    <None Remove="view\image\Pokemon_asset\Front\070.png" />
+    <None Remove="view\image\Pokemon_asset\Front\071.png" />
+    <None Remove="view\image\Pokemon_asset\Front\072.png" />
+    <None Remove="view\image\Pokemon_asset\Front\073.png" />
+    <None Remove="view\image\Pokemon_asset\Front\074.png" />
+    <None Remove="view\image\Pokemon_asset\Front\075.png" />
+    <None Remove="view\image\Pokemon_asset\Front\076.png" />
+    <None Remove="view\image\Pokemon_asset\Front\077.png" />
+    <None Remove="view\image\Pokemon_asset\Front\078.png" />
+    <None Remove="view\image\Pokemon_asset\Front\079.png" />
+    <None Remove="view\image\Pokemon_asset\Front\080.png" />
+    <None Remove="view\image\Pokemon_asset\Front\081.png" />
+    <None Remove="view\image\Pokemon_asset\Front\082.png" />
+    <None Remove="view\image\Pokemon_asset\Front\083.png" />
+    <None Remove="view\image\Pokemon_asset\Front\084.png" />
+    <None Remove="view\image\Pokemon_asset\Front\085.png" />
+    <None Remove="view\image\Pokemon_asset\Front\086.png" />
+    <None Remove="view\image\Pokemon_asset\Front\087.png" />
+    <None Remove="view\image\Pokemon_asset\Front\088.png" />
+    <None Remove="view\image\Pokemon_asset\Front\089.png" />
+    <None Remove="view\image\Pokemon_asset\Front\090.png" />
+    <None Remove="view\image\Pokemon_asset\Front\091.png" />
+    <None Remove="view\image\Pokemon_asset\Front\092.png" />
+    <None Remove="view\image\Pokemon_asset\Front\093.png" />
+    <None Remove="view\image\Pokemon_asset\Front\094.png" />
+    <None Remove="view\image\Pokemon_asset\Front\095.png" />
+    <None Remove="view\image\Pokemon_asset\Front\096.png" />
+    <None Remove="view\image\Pokemon_asset\Front\097.png" />
+    <None Remove="view\image\Pokemon_asset\Front\098.png" />
+    <None Remove="view\image\Pokemon_asset\Front\099.png" />
+    <None Remove="view\image\Pokemon_asset\Front\100.png" />
+    <None Remove="view\image\Pokemon_asset\Front\101.png" />
+    <None Remove="view\image\Pokemon_asset\Front\102.png" />
+    <None Remove="view\image\Pokemon_asset\Front\103.png" />
+    <None Remove="view\image\Pokemon_asset\Front\104.png" />
+    <None Remove="view\image\Pokemon_asset\Front\105.png" />
+    <None Remove="view\image\Pokemon_asset\Front\106.png" />
+    <None Remove="view\image\Pokemon_asset\Front\107.png" />
+    <None Remove="view\image\Pokemon_asset\Front\108.png" />
+    <None Remove="view\image\Pokemon_asset\Front\109.png" />
+    <None Remove="view\image\Pokemon_asset\Front\110.png" />
+    <None Remove="view\image\Pokemon_asset\Front\111.png" />
+    <None Remove="view\image\Pokemon_asset\Front\112.png" />
+    <None Remove="view\image\Pokemon_asset\Front\113.png" />
+    <None Remove="view\image\Pokemon_asset\Front\114.png" />
+    <None Remove="view\image\Pokemon_asset\Front\115.png" />
+    <None Remove="view\image\Pokemon_asset\Front\116.png" />
+    <None Remove="view\image\Pokemon_asset\Front\117.png" />
+    <None Remove="view\image\Pokemon_asset\Front\118.png" />
+    <None Remove="view\image\Pokemon_asset\Front\119.png" />
+    <None Remove="view\image\Pokemon_asset\Front\120.png" />
+    <None Remove="view\image\Pokemon_asset\Front\121.png" />
+    <None Remove="view\image\Pokemon_asset\Front\122.png" />
+    <None Remove="view\image\Pokemon_asset\Front\123.png" />
+    <None Remove="view\image\Pokemon_asset\Front\124.png" />
+    <None Remove="view\image\Pokemon_asset\Front\125.png" />
+    <None Remove="view\image\Pokemon_asset\Front\126.png" />
+    <None Remove="view\image\Pokemon_asset\Front\127.png" />
+    <None Remove="view\image\Pokemon_asset\Front\128.png" />
+    <None Remove="view\image\Pokemon_asset\Front\129.png" />
+    <None Remove="view\image\Pokemon_asset\Front\130.png" />
+    <None Remove="view\image\Pokemon_asset\Front\131.png" />
+    <None Remove="view\image\Pokemon_asset\Front\132.png" />
+    <None Remove="view\image\Pokemon_asset\Front\133.png" />
+    <None Remove="view\image\Pokemon_asset\Front\134.png" />
+    <None Remove="view\image\Pokemon_asset\Front\135.png" />
+    <None Remove="view\image\Pokemon_asset\Front\136.png" />
+    <None Remove="view\image\Pokemon_asset\Front\137.png" />
+    <None Remove="view\image\Pokemon_asset\Front\138.png" />
+    <None Remove="view\image\Pokemon_asset\Front\139.png" />
+    <None Remove="view\image\Pokemon_asset\Front\140.png" />
+    <None Remove="view\image\Pokemon_asset\Front\141.png" />
+    <None Remove="view\image\Pokemon_asset\Front\142.png" />
+    <None Remove="view\image\Pokemon_asset\Front\143.png" />
+    <None Remove="view\image\Pokemon_asset\Front\144.png" />
+    <None Remove="view\image\Pokemon_asset\Front\145.png" />
+    <None Remove="view\image\Pokemon_asset\Front\146.png" />
+    <None Remove="view\image\Pokemon_asset\Front\147.png" />
+    <None Remove="view\image\Pokemon_asset\Front\148.png" />
+    <None Remove="view\image\Pokemon_asset\Front\149.png" />
+    <None Remove="view\image\Pokemon_asset\Front\150.png" />
+    <None Remove="view\image\Pokemon_asset\Front\151.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\001.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\002.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\003.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\004.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\005.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\006.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\007.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\008.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\009.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\010.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\011.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\012.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\013.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\014.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\015.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\016.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\017.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\018.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\019.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\020.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\021.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\022.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\023.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\024.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\025.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\026.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\027.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\028.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\029.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\030.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\031.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\032.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\033.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\034.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\035.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\036.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\037.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\038.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\039.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\040.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\041.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\042.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\043.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\044.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\045.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\046.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\047.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\048.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\049.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\050.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\051.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\052.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\053.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\054.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\055.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\056.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\057.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\058.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\059.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\060.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\061.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\062.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\063.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\064.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\065.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\066.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\067.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\068.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\069.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\070.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\071.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\072.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\073.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\074.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\075.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\076.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\077.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\078.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\079.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\080.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\081.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\082.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\083.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\084.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\085.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\086.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\087.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\088.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\089.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\090.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\091.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\092.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\093.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\094.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\095.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\096.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\097.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\098.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\099.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\100.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\101.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\102.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\103.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\104.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\105.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\106.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\107.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\108.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\109.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\110.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\111.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\112.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\113.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\114.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\115.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\116.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\117.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\118.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\119.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\120.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\121.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\122.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\123.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\124.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\125.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\126.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\127.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\128.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\129.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\130.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\131.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\132.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\133.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\134.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\135.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\136.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\137.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\138.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\139.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\140.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\141.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\142.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\143.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\144.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\145.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\146.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\147.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\148.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\149.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\150.png" />
+    <None Remove="view\image\Pokemon_asset\Icon\151.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="controller\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="view\image\Caractere\Amarylis.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Caractere\Cynthia.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Caractere\N.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Caractere\Pierre.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Caractere\Sacha.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Caractere\Tiplouf.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\dracollosse.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\Intro.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\Intro.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\Page intro.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\pc.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\PC2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\poke-intro.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\Titre.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\001.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\002.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\003.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\004.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\005.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\006.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\007.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\008.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\009.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\010.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\011.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\012.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\013.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\014.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\015.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\016.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\017.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\018.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\019.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\020.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\021.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\022.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\023.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\024.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\025.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\026.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\027.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\028.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\029.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\030.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\031.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\032.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\033.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\034.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\035.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\036.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\037.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\038.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\039.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\040.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\041.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\042.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\043.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\044.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\045.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\046.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\047.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\048.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\049.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\050.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\051.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\052.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\053.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\054.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\055.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\056.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\057.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\058.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\059.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\060.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\061.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\062.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\063.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\064.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\065.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\066.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\067.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\068.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\069.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\070.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\071.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\072.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\073.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\074.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\075.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\076.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\077.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\078.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\079.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\080.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\081.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\082.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\083.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\084.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\085.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\086.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\087.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\088.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\089.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\090.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\091.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\092.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\093.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\094.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\095.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\096.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\097.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\098.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\099.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\100.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\101.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\102.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\103.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\104.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\105.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\106.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\107.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\108.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\109.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\110.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\111.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\112.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\113.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\114.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\115.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\116.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\117.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\118.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\119.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\120.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\121.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\122.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\123.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\124.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\125.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\126.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\127.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\128.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\129.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\130.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\131.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\132.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\133.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\134.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\135.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\136.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\137.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\138.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\139.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\140.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\141.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\142.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\143.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\144.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\145.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\146.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\147.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\148.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\149.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\150.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Back\151.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\001.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\002.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\003.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\004.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\005.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\006.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\007.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\008.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\009.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\010.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\011.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\012.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\013.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\014.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\015.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\016.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\017.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\018.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\019.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\020.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\021.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\022.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\023.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\024.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\025.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\026.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\027.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\028.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\029.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\030.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\031.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\032.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\033.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\034.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\035.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\036.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\037.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\038.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\039.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\040.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\041.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\042.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\043.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\044.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\045.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\046.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\047.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\048.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\049.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\050.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\051.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\052.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\053.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\054.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\055.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\056.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\057.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\058.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\059.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\060.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\061.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\062.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\063.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\064.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\065.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\066.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\067.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\068.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\069.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\070.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\071.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\072.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\073.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\074.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\075.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\076.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\077.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\078.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\079.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\080.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\081.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\082.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\083.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\084.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\085.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\086.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\087.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\088.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\089.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\090.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\091.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\092.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\093.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\094.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\095.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\096.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\097.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\098.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\099.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\100.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\101.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\102.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\103.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\104.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\105.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\106.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\107.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\108.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\109.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\110.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\111.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\112.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\113.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\114.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\115.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\116.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\117.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\118.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\119.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\120.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\121.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\122.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\123.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\124.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\125.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\126.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\127.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\128.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\129.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\130.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\131.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\132.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\133.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\134.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\135.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\136.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\137.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\138.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\139.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\140.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\141.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\142.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\143.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\144.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\145.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\146.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\147.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\148.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\149.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\150.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Front\151.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\001.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\002.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\003.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\004.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\005.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\006.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\007.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\008.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\009.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\010.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\011.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\012.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\013.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\014.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\015.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\016.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\017.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\018.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\019.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\020.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\021.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\022.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\023.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\024.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\025.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\026.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\027.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\028.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\029.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\030.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\031.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\032.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\033.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\034.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\035.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\036.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\037.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\038.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\039.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\040.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\041.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\042.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\043.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\044.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\045.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\046.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\047.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\048.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\049.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\050.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\051.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\052.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\053.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\054.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\055.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\056.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\057.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\058.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\059.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\060.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\061.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\062.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\063.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\064.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\065.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\066.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\067.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\068.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\069.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\070.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\071.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\072.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\073.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\074.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\075.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\076.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\077.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\078.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\079.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\080.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\081.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\082.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\083.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\084.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\085.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\086.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\087.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\088.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\089.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\090.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\091.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\092.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\093.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\094.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\095.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\096.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\097.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\098.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\099.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\100.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\101.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\102.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\103.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\104.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\105.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\106.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\107.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\108.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\109.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\110.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\111.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\112.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\113.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\114.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\115.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\116.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\117.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\118.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\119.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\120.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\121.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\122.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\123.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\124.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\125.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\126.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\127.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\128.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\129.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\130.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\131.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\132.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\133.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\134.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\135.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\136.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\137.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\138.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\139.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\140.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\141.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\142.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\143.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\144.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\145.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\146.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\147.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\148.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\149.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\150.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Icon\151.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
