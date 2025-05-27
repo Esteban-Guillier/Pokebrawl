@@ -20,11 +20,11 @@ namespace Pokebrawl.viewModels
         {
             Avatars = new ObservableCollection<string>
             {
-                "view/image/Caractere/Amarylis.png",
-                "view/image/Caractere/Cynthia.png",
-                "view/image/Caractere/N.png",
-                "view/image/Caractere/Pierre.png",
-                "view/image/Caractere/Tiplouf.png"
+                "/Pokebrawl;component/view/image/Caractere/Amarylis.png",
+                "/Pokebrawl;component/view/image/Caractere/Cynthia.png",
+                "/Pokebrawl;component/view/image/Caractere/N.png",
+                "/Pokebrawl;component/view/image/Caractere/Pierre.png",
+                "/Pokebrawl;component/view/image/Caractere/Tiplouf.png"
             };
             ChoisirAvatarCommand = new RelayCommand(param =>
             {

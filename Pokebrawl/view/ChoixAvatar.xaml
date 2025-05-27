@@ -8,7 +8,7 @@
         Title="ChoixAvatar" Height="450" Width="800">
     <Grid>
         <TextBlock Text="Choisissez votre avatar" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"/>
-        <ItemsControl Name="AvatarList" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ItemsControl x:Name="AvatarList" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
@@ -16,7 +16,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Click="Avatar_Click">
+                    <Button Click="Avatar_Click" Tag="{Binding}">
                         <Image Source="{Binding}" Width="100" Height="100"/>
                     </Button>
                 </DataTemplate>

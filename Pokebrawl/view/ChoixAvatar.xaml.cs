@@ -21,8 +21,14 @@ namespace Pokebrawl.view
     public partial class ChoixAvatar : Page
     {
         private Frame _mainFrame;
-        private List<string> avatars = new() { "Amarylis.png", "Cynthia.png", "N.png", "Pierre.png", "Tiplouf.png" };
-
+        private List<string> avatars = new()
+            {
+                "pack://application:,,,/view/image/Caractere/Amarylis.png",
+                "pack://application:,,,/view/image/Caractere/Cynthia.png",
+                "pack://application:,,,/view/image/Caractere/N.png",
+                "pack://application:,,,/view/image/Caractere/Pierre.png",
+                "pack://application:,,,/view/image/Caractere/Tiplouf.png"
+            };
         public ChoixAvatar(Frame mainFrame)
         {
             InitializeComponent();
@@ -32,11 +38,12 @@ namespace Pokebrawl.view
 
         private void Avatar_Click(object sender, RoutedEventArgs e)
         {
-            var img = (sender as Button)?.Content as Image;
-            var src = img?.Source.ToString();
-            // Stocker l'avatar du joueur dans un singleton ou navigation context
-            AppData.Joueur.Avatar = src ?? avatars[0];
-            _mainFrame.Navigate(new Menu(_mainFrame));
+            var bouton = sender as Button;
+            var avatarPath = bouton?.Tag as string;
+            AppData.Joueur.Avatar = avatarPath ?? avatars[0];
+
+            _mainFrame.Navigate(new Menu(_mainFrame), avatarPath);
+
         }
     }
 }

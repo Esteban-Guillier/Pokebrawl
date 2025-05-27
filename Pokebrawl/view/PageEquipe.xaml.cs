@@ -23,9 +23,9 @@ namespace Pokebrawl.view
         private Frame _mainFrame;
         private List<Pokemon> starters = new()
         {
-            new Pokemon { Nom = "Bulbizarre", ImageFace = "bulbizarre_face.png", CoutEquipe = 2 },
-            new Pokemon { Nom = "Salamèche", ImageFace = "salameche_face.png", CoutEquipe = 2 },
-            new Pokemon { Nom = "Carapuce", ImageFace = "carapuce_face.png", CoutEquipe = 2 }
+            new Pokemon { Nom = "Bulbizarre", ImageFace = "/view/image/Pokemon_Asset/Front/001.png", CoutEquipe = 2 },
+            new Pokemon { Nom = "Salamèche", ImageFace = "/view/image/Pokemon_Asset/Front/salameche_face.png", CoutEquipe = 2 },
+            new Pokemon { Nom = "Carapuce", ImageFace = "/view/image/Pokemon_Asset/Front/carapuce_face.png", CoutEquipe = 2 }
         };
 
         public PageEquipe(Frame mainFrame)
