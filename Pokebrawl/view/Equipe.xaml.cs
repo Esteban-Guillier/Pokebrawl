@@ -20,34 +20,57 @@ namespace Pokebrawl.view
     /// </summary>
     public partial class Equipe : Page
     {
-        public class PokemonAffiche
+        private Frame _mainFrame;
+        private List<Pokemon> starters = new()
         {
-            public string Nom { get; set; }
-            public string Niveau { get; set; }
-            public BitmapImage Sprite { get; set; }
-        }
+            new Pokemon { Nom = "Bulbizarre", ImageFace = "bulbizarre_face.png", CoutEquipe = 2 },
+            new Pokemon { Nom = "Salamèche", ImageFace = "salameche_face.png", CoutEquipe = 2 },
+            new Pokemon { Nom = "Carapuce", ImageFace = "carapuce_face.png", CoutEquipe = 2 }
+        };
 
-        public Equipe(List<PokemonAffiche> equipe)
+        public PageEquipe(Frame mainFrame)
         {
             InitializeComponent();
-            DataContext = App.JoueurActuel;
-            List<PokemonAffiche> affichage = new List<PokemonAffiche>();
-            foreach (var p in GameState.JoueurActuel.Equipe)
-            {
-                affichage.Add(new PokemonAffiche
-                {
-                    Nom = p.Nom,
-                    Niveau = "Niv. " + p.Niveau,
-                    Sprite = new BitmapImage(new Uri(p.Sprite, UriKind.RelativeOrAbsolute))
-                });
-            }
+            _mainFrame = mainFrame;
+            StartersList.ItemsSource = starters;
+            EquipeList.ItemsSource = AppData.Joueur.Equipe.Pokemons;
+            PointsText.Text = $"Points utilisés : {AppData.Joueur.Equipe.PointsUtilises}/{Equipe.MaxPoints}";
+            StartersList.SelectionChanged += StartersList_SelectionChanged;
+        }
 
-            PokemonList.ItemsSource = affichage;
+        private void StartersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (StartersList.SelectedItem is Pokemon p)
+            {
+                if (AppData.Joueur.Equipe.Pokemons.Count < Equipe.MaxPokemons &&
+                    AppData.Joueur.Equipe.PointsUtilises + p.CoutEquipe <= Equipe.MaxPoints)
+                {
+                    // Copie pour éviter la référence
+                    AppData.Joueur.Equipe.Pokemons.Add(new Pokemon
+                    {
+                        Nom = p.Nom,
+                        ImageFace = p.ImageFace,
+                        CoutEquipe = p.CoutEquipe
+                    });
+                    EquipeList.Items.Refresh();
+                    PointsText.Text = $"Points utilisés : {AppData.Joueur.Equipe.PointsUtilises}/{Equipe.MaxPoints}";
+                }
+            }
+        }
+
+        private void Retirer_Click(object sender, RoutedEventArgs e)
+        {
+            if ((sender as Button)?.DataContext is Pokemon p)
+            {
+                AppData.Joueur.Equipe.Pokemons.Remove(p);
+                EquipeList.Items.Refresh();
+                PointsText.Text = $"Points utilisés : {AppData.Joueur.Equipe.PointsUtilises}/{Equipe.MaxPoints}";
+            }
         }
 
         private void Retour_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.GoBack();
+            _mainFrame.Navigate(new PageMenu(_mainFrame));
         }
     }
 }

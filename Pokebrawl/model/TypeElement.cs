@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pokebrawl.model
 {
-    public enum TypeElement
+    public enum TypePokemon
     {
-        Normal, Feu, Eau, Plante, Électrique, Glace, Combat, Poison,
-        Sol, Vol, Psy, Insecte, Roche, Spectre, Dragon, Acier
+        Normal, Feu, Eau, Plante, Electrique, Glace, Combat,
+        Poison, Sol, Vol, Psy, Insecte, Roche, Spectre,
+        Dragon, Acier
     }
 }

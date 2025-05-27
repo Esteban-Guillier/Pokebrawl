@@ -12,20 +12,7 @@ namespace Pokebrawl
     /// </summary>
     public partial class App : Application
     {
-        public static Joueur JoueurActuel { get; private set; }
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
-            JoueurActuel = new Joueur
-            {
-                Equipe = new ObservableCollection<Pokemon>()
-                // Initialisez d'autres propriétés si nécessaire
-            };
-            // Démarrez votre application avec la première page
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
-        }
+        public static Joueur Joueur { get; set; } = new Joueur();
     }
 
 }

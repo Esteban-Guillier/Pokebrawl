@@ -20,15 +20,16 @@ namespace Pokebrawl.view
     /// </summary>
     public partial class PageIntro : Page
     {
-        public PageIntro()
+        private Frame _mainFrame;
+        public PageIntro(Frame mainFrame)
         {
             InitializeComponent();
+            _mainFrame = mainFrame;
         }
 
         private void Jouer_Click(object sender, RoutedEventArgs e)
         {
-            // Naviguer via le NavigationService de la Page
-            this.NavigationService?.Navigate(new ChoixAvatar());
+            _mainFrame.Navigate(new PageChoixAvatar(_mainFrame));
         }
     }
 }

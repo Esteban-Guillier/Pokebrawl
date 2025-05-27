@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Pokebrawl.model
 {
-    public class Objet
+    public enum StadeEvolution
     {
-        public string Nom { get; set; }
-        public string Effet { get; set; }
-        public int Quantite { get; set; }
+        Stade1, Stade2, Stade3
     }
-
 }

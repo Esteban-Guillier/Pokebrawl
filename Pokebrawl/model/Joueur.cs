@@ -8,37 +8,12 @@ using System.Threading.Tasks;
 
 namespace Pokebrawl.model
 {
-    public class Joueur : INotifyPropertyChanged
+    public class Joueur
     {
-        private ObservableCollection<Pokemon> _equipe;
-        public ObservableCollection<Pokemon> Equipe
-        {
-            get => _equipe;
-            set
-            {
-                _equipe = value;
-                OnPropertyChanged(nameof(Equipe));
-            }
-        }
-
-        private string avatar;
-        public string Avatar
-        {
-            get => avatar;
-            set
-            {
-                avatar = value;
-                OnPropertyChanged(nameof(Avatar));
-            }
-        }
-        public int PointsEquipe { get; set; } = 0;
-        public int Argent { get; set; } = 0;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        public string Nom { get; set; }
+        public string Avatar { get; set; }
+        public Equipe Equipe { get; set; } = new Equipe();
+        public int Argent { get; set; }
+        public List<Objet> Objets { get; set; } = new List<Objet>();
     }
 }

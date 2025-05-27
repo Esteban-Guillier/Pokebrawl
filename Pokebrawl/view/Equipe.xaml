@@ -6,30 +6,29 @@
         xmlns:local="clr-namespace:Pokebrawl.view"
         mc:Ignorable="d"
         Title="Equipe" Height="450" Width="800">
-    <Grid Background="White">
-        <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center">
-            <TextBlock Text="Votre Équipe" FontSize="28" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
-
-            <ItemsControl x:Name="PokemonList">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl ItemsSource="{Binding Equipe}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Image Source="{Binding ImageFace}" Width="100" Height="100"/>
-                                <TextBlock Text="{Binding Nom}" />
-                                <TextBlock Text="{Binding Niveau}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Liste des Pokémon starters -->
+        <ListBox Name="StartersList" Grid.Row="0" DisplayMemberPath="Nom"
+                 SelectionMode="Single"/>
+        <!-- Affichage de l'équipe -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <ItemsControl Name="EquipeList">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageFace}" Width="60" Height="60"/>
+                            <Button Content="Retirer" Click="Retirer_Click"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
             </ItemsControl>
-
-            <Button Content="Retour au menu" Width="150" Margin="20" Click="Retour_Click"/>
+            <TextBlock Name="PointsText" Margin="20,0"/>
         </StackPanel>
+        <Button Content="Retour" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20"
+                Click="Retour_Click"/>
     </Grid>
 </Page>

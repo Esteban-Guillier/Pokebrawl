@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="Combat" Height="450" Width="800">
     <Grid>
-        
+        <!-- Avatar joueur à gauche -->
+        <Image Name="AvatarImg" Width="80" Height="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
+        <!-- Pokémon joueur de dos -->
+        <Image Name="PlayerPkmnImg" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,60"/>
+        <!-- Barre et infos du Pokémon joueur -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,60">
+            <TextBlock Name="PlayerPkmnName" FontWeight="Bold"/>
+            <ProgressBar Name="PlayerPVBar" Width="120" Height="20"/>
+            <TextBlock Name="PlayerPkmnLvl"/>
+        </StackPanel>
+        <!-- Pokémon adverse de face -->
+        <Image Name="EnemyPkmnImg" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0"/>
+        <!-- Infos adversaire -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,60,0,0">
+            <TextBlock Name="EnemyPkmnName" FontWeight="Bold"/>
+            <ProgressBar Name="EnemyPVBar" Width="120" Height="20"/>
+            <TextBlock Name="EnemyPkmnLvl"/>
+        </StackPanel>
+        <!-- Liste des attaques -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Name="AttackPanel">
+        </StackPanel>
     </Grid>
 </Window>

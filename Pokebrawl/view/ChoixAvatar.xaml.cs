@@ -20,67 +20,23 @@ namespace Pokebrawl.view
     /// </summary>
     public partial class ChoixAvatar : Page
     {
-        private int selectedAvatarId = -1;
+        private Frame _mainFrame;
+        private List<string> avatars = new() { "avatar1.png", "avatar2.png", "avatar3.png", "avatar4.png", "avatar5.png" };
 
-        public ChoixAvatar()
+        public PageChoixAvatar(Frame mainFrame)
         {
             InitializeComponent();
+            _mainFrame = mainFrame;
+            AvatarList.ItemsSource = avatars;
         }
 
-        private void Avatar_Click(object sender, MouseButtonEventArgs e)
+        private void Avatar_Click(object sender, RoutedEventArgs e)
         {
-            Image clickedImage = sender as Image;
-            int avatarId = int.Parse(clickedImage.Tag.ToString());
-            selectedAvatarId = avatarId;
-
-            // Réinitialiser tous les bordures à Transparent
-            Avatar1Border.BorderBrush = Brushes.Transparent;
-            Avatar2Border.BorderBrush = Brushes.Transparent;
-            Avatar3Border.BorderBrush = Brushes.Transparent;
-            Avatar4Border.BorderBrush = Brushes.Transparent;
-            Avatar5Border.BorderBrush = Brushes.Transparent;
-
-            // Colorer la bordure de l'avatar sélectionné
-            switch (avatarId)
-            {
-                case 1: Avatar1Border.BorderBrush = Brushes.Blue; break;
-                case 2: Avatar2Border.BorderBrush = Brushes.Blue; break;
-                case 3: Avatar3Border.BorderBrush = Brushes.Blue; break;
-                case 4: Avatar4Border.BorderBrush = Brushes.Blue; break;
-                case 5: Avatar5Border.BorderBrush = Brushes.Blue; break;
-            }
-        }
-
-        private void Valider_Click(object sender, RoutedEventArgs e)
-        {
-            if (selectedAvatarId == -1)
-            {
-                MessageBox.Show("Veuillez sélectionner un avatar.");
-                return;
-            }
-
-            // Détermine le chemin de l’avatar choisi
-            string avatarPath = selectedAvatarId switch
-            {
-                1 => "image/Caractere/Amarylis.png",
-                2 => "image/Caractere/Cynthia.png",
-                3 => "image/Caractere/N.png",
-                4 => "image/Caractere/Pierre.png",
-                5 => "image/Caractere/Tiplouf.png",
-                _ => null
-            };
-
-            GameState.JoueurActuel.Avatar = avatarPath;
-            // Liste factice de Pokémon pour le test (à remplacer par l’équipe réelle du joueur)
-            List<string> equipe = new List<string>
-    {
-        "image/Pokemon_asset/Icon/001.png",
-        "image/Pokemon_asset/Icon/004.png",
-        "image/Pokemon_asset/Icon/151.png"
-    };
-
-            // Navigation vers la page Menu
-            NavigationService?.Navigate(new Menu(avatarPath, equipe));
+            var img = (sender as Button)?.Content as Image;
+            var src = img?.Source.ToString();
+            // Stocker l'avatar du joueur dans un singleton ou navigation context
+            AppData.Joueur.Avatar = src ?? avatars[0];
+            _mainFrame.Navigate(new PageMenu(_mainFrame));
         }
     }
 }

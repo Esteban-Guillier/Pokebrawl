@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Pokebrawl.model
 {
-    public class Objet
+    public enum EspecePokemon
     {
-        public string Nom { get; set; }
-        public string Effet { get; set; }
-        public int Quantite { get; set; }
+        Classique, Legendaire
     }
-
 }

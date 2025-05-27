@@ -6,44 +6,23 @@
         xmlns:local="clr-namespace:Pokebrawl.view"
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="800">
-    <Grid>
-        <!-- Fond d'écran -->
-        <Grid.Background>
-            <ImageBrush ImageSource="image/Fond/Intro.png" Stretch="Fill"/>
-        </Grid.Background>
-
-        <!-- Contenu principal -->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-
-            <!-- Bouton Équipe à gauche -->
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Content="Équipe" Width="150" Height="50" Click="Equipe_Click"/>
-            </StackPanel>
-
-            <!-- Avatar + Équipe en bas -->
-            <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="20">
-                <!-- Avatar joueur -->
-                <Image x:Name="AvatarImage" Width="100" Height="100" Margin="5"/>
-
-                <!-- Équipe Pokémon -->
-                <ItemsControl ItemsSource="{Binding Equipe}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding ImageFace}" Width="80" Height="80" Margin="5"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
-
-            <!-- Bouton Combat à droite -->
-            <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Content="Combat" Width="150" Height="50" Click="Combat_Click"/>
-            </StackPanel>
-        </Grid>
-    </Grid>
+    <StackPanel HorizontalAlignment="Center" Margin="20">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="Équipe" Width="150" Height="50" Margin="10" Click="Equipe_Click"/>
+            <Button Content="Jouer" Width="150" Height="50" Margin="10" Click="Jouer_Click" Name="BtnJouer"/>
+        </StackPanel>
+        <TextBlock Text="Votre équipe :" FontSize="20" Margin="0,40,0,0" HorizontalAlignment="Center"/>
+        <ItemsControl Name="EquipeList" HorizontalAlignment="Center">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding ImageFace}" Width="80" Height="80"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
 </Page>
