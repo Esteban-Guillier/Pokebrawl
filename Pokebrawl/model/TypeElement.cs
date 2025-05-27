@@ -8,8 +8,8 @@ namespace Pokebrawl.model
 {
     public enum TypePokemon
     {
-        Normal, Feu, Eau, Plante, Electrique, Glace, Combat,
+        Normal, Feu, Eau, Plante, Electrik, Glace, Combat,
         Poison, Sol, Vol, Psy, Insecte, Roche, Spectre,
-        Dragon, Acier
+        Dragon, Acier, Fée, Ténèbres, 
     }
 }
