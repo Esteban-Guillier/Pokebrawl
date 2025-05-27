@@ -36,7 +36,7 @@ namespace Pokebrawl.view
             var src = img?.Source.ToString();
             // Stocker l'avatar du joueur dans un singleton ou navigation context
             AppData.Joueur.Avatar = src ?? avatars[0];
-            _mainFrame.Navigate(new PageMenu(_mainFrame));
+            _mainFrame.Navigate(new Menu(_mainFrame));
         }
     }
 }

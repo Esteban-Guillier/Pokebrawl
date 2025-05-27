@@ -29,7 +29,7 @@ namespace Pokebrawl.view
 
         private void Jouer_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new PageChoixAvatar(_mainFrame));
+            _mainFrame.Navigate(new ChoixAvatar(_mainFrame));
         }
     }
 }

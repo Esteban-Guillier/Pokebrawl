@@ -20,11 +20,11 @@ namespace Pokebrawl.viewModels
         {
             Avatars = new ObservableCollection<string>
             {
-                "avatar1.png",
-                "avatar2.png",
-                "avatar3.png",
-                "avatar4.png",
-                "avatar5.png"
+                "view/image/Caractere/Amarylis.png",
+                "view/image/Caractere/Cynthia.png",
+                "view/image/Caractere/N.png",
+                "view/image/Caractere/Pierre.png",
+                "view/image/Caractere/Tiplouf.png"
             };
             ChoisirAvatarCommand = new RelayCommand(param =>
             {
@@ -33,3 +33,4 @@ namespace Pokebrawl.viewModels
             });
         }
     }
+}

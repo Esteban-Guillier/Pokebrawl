@@ -27,7 +27,7 @@ namespace Pokebrawl.view
 
         private void Equipe_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new PageEquipe(_mainFrame));
+            _mainFrame.Navigate(new Equipe(_mainFrame));
         }
 
         private void Jouer_Click(object sender, RoutedEventArgs e)
