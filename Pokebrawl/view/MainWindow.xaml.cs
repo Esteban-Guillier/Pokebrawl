@@ -19,7 +19,7 @@ namespace Pokebrawl.view
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new PageIntro());
+            MainFrame.Navigate(new PageIntro(this.MainFrame));
         }
     }
 }

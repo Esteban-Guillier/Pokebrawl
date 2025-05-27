@@ -18,7 +18,7 @@ namespace Pokebrawl.view
     /// <summary>
     /// Logique d'interaction pour Equipe.xaml
     /// </summary>
-    public partial class Equipe : Page
+    public partial class PageEquipe : Page
     {
         private Frame _mainFrame;
         private List<Pokemon> starters = new()
@@ -45,7 +45,6 @@ namespace Pokebrawl.view
                 if (AppData.Joueur.Equipe.Pokemons.Count < Equipe.MaxPokemons &&
                     AppData.Joueur.Equipe.PointsUtilises + p.CoutEquipe <= Equipe.MaxPoints)
                 {
-                    // Copie pour éviter la référence
                     AppData.Joueur.Equipe.Pokemons.Add(new Pokemon
                     {
                         Nom = p.Nom,
@@ -70,7 +69,7 @@ namespace Pokebrawl.view
 
         private void Retour_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new PageMenu(_mainFrame));
+            _mainFrame.Navigate(new Menu(_mainFrame));
         }
     }
 }

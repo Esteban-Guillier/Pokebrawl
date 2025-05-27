@@ -21,9 +21,9 @@ namespace Pokebrawl.view
     public partial class ChoixAvatar : Page
     {
         private Frame _mainFrame;
-        private List<string> avatars = new() { "avatar1.png", "avatar2.png", "avatar3.png", "avatar4.png", "avatar5.png" };
+        private List<string> avatars = new() { "Amarylis.png", "Cynthia.png", "N.png", "Pierre.png", "Tiplouf.png" };
 
-        public PageChoixAvatar(Frame mainFrame)
+        public ChoixAvatar(Frame mainFrame)
         {
             InitializeComponent();
             _mainFrame = mainFrame;
