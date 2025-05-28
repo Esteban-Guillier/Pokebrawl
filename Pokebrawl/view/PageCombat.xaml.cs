@@ -39,8 +39,25 @@ namespace Pokebrawl.view
         {
             if (playerPkmn != null)
             {
-                AvatarImg.Source = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(AppData.Joueur.Avatar, System.UriKind.Relative));
-                PlayerPkmnImg.Source = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(playerPkmn.ImageDos ?? playerPkmn.ImageFace, System.UriKind.Relative));
+                // Avatar joueur
+                Uri avatarUri;
+                if (Uri.IsWellFormedUriString(AppData.Joueur.Avatar, UriKind.Absolute))
+                    avatarUri = new Uri(AppData.Joueur.Avatar, UriKind.Absolute);
+                else
+                    avatarUri = new Uri(AppData.Joueur.Avatar, UriKind.Relative);
+
+                AvatarImg.Source = new BitmapImage(avatarUri);
+
+                // Pokémon joueur
+                string playerImgPath = playerPkmn.ImageDos ?? playerPkmn.ImageFace;
+                Uri playerUri;
+                if (Uri.IsWellFormedUriString(playerImgPath, UriKind.Absolute))
+                    playerUri = new Uri(playerImgPath, UriKind.Absolute);
+                else
+                    playerUri = new Uri(playerImgPath, UriKind.Relative);
+
+                PlayerPkmnImg.Source = new BitmapImage(playerUri);
+
                 PlayerPkmnName.Text = playerPkmn.Nom;
                 PlayerPVBar.Maximum = playerPkmn.PVMax;
                 PlayerPVBar.Value = playerPkmn.PV;
@@ -48,7 +65,14 @@ namespace Pokebrawl.view
             }
             if (enemyPkmn != null)
             {
-                EnemyPkmnImg.Source = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(enemyPkmn.ImageFace, System.UriKind.Relative));
+                Uri enemyUri;
+                if (Uri.IsWellFormedUriString(enemyPkmn.ImageFace, UriKind.Absolute))
+                    enemyUri = new Uri(enemyPkmn.ImageFace, UriKind.Absolute);
+                else
+                    enemyUri = new Uri(enemyPkmn.ImageFace, UriKind.Relative);
+
+                EnemyPkmnImg.Source = new BitmapImage(enemyUri);
+
                 EnemyPkmnName.Text = enemyPkmn.Nom;
                 EnemyPVBar.Maximum = enemyPkmn.PVMax;
                 EnemyPVBar.Value = enemyPkmn.PV;
