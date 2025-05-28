@@ -8,23 +8,20 @@ namespace Pokebrawl.model
 {
     public class Objet
     {
-        public class Objet
-        {
-            public string Nom { get; set; }
-            public string Description { get; set; }
-            public int Prix { get; set; }
-            public int Quantite { get; set; }
-            public string Effet { get; set; } // "Soin", "Ball", etc.
-            public int Valeur { get; set; } // ex: PV soignés ou taux de capture
+        public string Nom { get; set; }
+        public string Description { get; set; }
+        public int Prix { get; set; }
+        public int Quantite { get; set; }
+        public string Effet { get; set; } // "Soin", "Ball", etc.
+        public int Valeur { get; set; } // ex: PV soignés ou taux de capture
 
-            public void Utiliser(Pokemon cible)
+        public void Utiliser(Pokemon cible)
+        {
+            if (Effet == "Soin")
             {
-                if (Effet == "Soin")
-                {
-                    cible.PV = System.Math.Min(cible.PVMax, cible.PV + Valeur);
-                }
-                // Autres effets...
+                cible.PV = System.Math.Min(cible.PVMax, cible.PV + Valeur);
             }
+            // Autres effets...
         }
 
         public static class Boutique

@@ -97,13 +97,34 @@ namespace Pokebrawl.view
                 AttackPanel.Children.Add(ballBtn);
             }
         }
-
+        private void EnemyTurn()
+        {
+            // ... logique d'attaque adverse ...
+            if (_session.CurrentPlayerPokemon.PV <= 0)
+            {
+                // Essaye de switcher de Pokémon
+                if (_session.SwitchToNextAlivePlayerPokemon())
+                {
+                    MessageBox.Show("Votre Pokémon est KO ! Envoi du suivant.");
+                    _isPlayerTurn = true;
+                    RefreshUI();
+                    return;
+                }
+                else
+                {
+                    Defeat();
+                    return;
+                }
+            }
+            _isPlayerTurn = true;
+            RefreshUI();
+        }
         private void Attack_Click(Attaque attaque)
         {
             if(!_isPlayerTurn) return;
             if (attaque.PP <= 0) { MessageBox.Show("Plus de PP !"); return; }
             attaque.PP--;
-            _session.CurrentEnemyPokemon.PV -= attaque.Power; // Ajoute un champ Power à Attaque si besoin
+            _session.CurrentEnemyPokemon.PV -= attaque.Puissance; // Ajoute un champ Power à Attaque si besoin
             if (_session.CurrentEnemyPokemon.PV <= 0)
             {
                 _session.CurrentEnemyPokemon.PV = 0;
@@ -115,26 +136,6 @@ namespace Pokebrawl.view
                 RefreshUI();
                 EnemyTurn();
             }
-        }
-        private void EnemyTurn()
-        {
-            // IA basique, attaque aléatoire
-            var atk = _session.CurrentEnemyPokemon.Attaques
-                .Where(a => a.PP > 0)
-                .OrderBy(x => Guid.NewGuid()).FirstOrDefault();
-            if (atk != null)
-            {
-                atk.PP--;
-                _session.CurrentPlayerPokemon.PV -= atk.Power;
-                if (_session.CurrentPlayerPokemon.PV <= 0)
-                {
-                    _session.CurrentPlayerPokemon.PV = 0;
-                    Defeat();
-                    return;
-                }
-            }
-            _isPlayerTurn = true;
-            RefreshUI();
         }
         private void UseBall_Click(object sender, RoutedEventArgs e)
         {
@@ -156,7 +157,7 @@ namespace Pokebrawl.view
             if (_session.IsBossFight)
             {
                 // Aller à la page magasin
-                _mainFrame.Navigate(new PageMagasin(_mainFrame, _session));
+                _mainFrame.Navigate(new Magasin(_mainFrame, _session));
             }
             else
             {

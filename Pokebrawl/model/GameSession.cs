@@ -11,7 +11,8 @@ namespace Pokebrawl.model
         public int CombatNumber { get; private set; } = 1;
         public int Money { get; set; } = 0;
         public List<Pokemon> Team { get; }
-        public Pokemon CurrentPlayerPokemon => Team[0];
+        private int _currentPlayerIndex = 0;
+        public Pokemon CurrentPlayerPokemon => Team[_currentPlayerIndex];
         public Pokemon CurrentEnemyPokemon { get; private set; }
         public bool IsBossFight => CombatNumber % 10 == 0;
         private Random rng = new();
@@ -23,12 +24,26 @@ namespace Pokebrawl.model
 
         public void NextCombat()
         {
+            _currentPlayerIndex = 0; // Remet le joueur au début à chaque combat
             if (IsBossFight)
                 CurrentEnemyPokemon = GenerateBoss(CombatNumber / 10);
             else
                 CurrentEnemyPokemon = GenerateRandomPokemon();
 
             CombatNumber++;
+        }
+
+        public bool SwitchToNextAlivePlayerPokemon()
+        {
+            for (int i = _currentPlayerIndex + 1; i < Team.Count; ++i)
+            {
+                if (Team[i].PV > 0)
+                {
+                    _currentPlayerIndex = i;
+                    return true;
+                }
+            }
+            return false;
         }
 
         private Pokemon GenerateBoss(int bossLevel)
@@ -46,10 +61,11 @@ namespace Pokebrawl.model
 
         private Pokemon GenerateRandomPokemon()
         {
-            var wilds = Pokemon.GetWildPokemons();
+            var wilds = PokemonDatabase.GetWildPokemons();
             var basePkmn = wilds[rng.Next(wilds.Count)];
             basePkmn.PV = basePkmn.PVMax;
             basePkmn.Niveau = rng.Next(1, 10);
             return basePkmn;
         }
     }
+}

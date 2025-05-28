@@ -23,36 +23,16 @@ namespace Pokebrawl.model
                 Evolution = "Herbizarre",
                 Attaques = new List<Attaque>
                 {
-                    new Attaque { Nom = "Charge", PP = 35, PPMax = 35, Power = 5, Type = "Normal" },
-                    new Attaque { Nom = "Fouet Lianes", PP = 10, PPMax = 10, Power = 8, Type = "Plante" }
+                    new Attaque { Nom = "Charge", Type = TypePokemon.Normal, PP = 35, PPMax = 35, Puissance = 5 },
+                    new Attaque { Nom = "Fouet Lianes", Type = TypePokemon.Plante, PP = 10, PPMax = 10, Puissance = 8 }
                 },
                 LevelUpMoves = new List<LevelUpMove>
                 {
-                    new LevelUpMove { Level = 7, Move = new Attaque{ Nom = "Vampigraine", PP = 10, PPMax = 10, Power = 10, Type = "Plante" } },
-                    new LevelUpMove { Level = 13, Move = new Attaque{ Nom = "Tranch'Herbe", PP = 10, PPMax = 10, Power = 15, Type = "Plante" } }
+                    new LevelUpMove { Level = 7, Move = new Attaque{ Nom = "Vampigraine", Type = TypePokemon.Plante, PP = 10, PPMax = 10, Puissance = 10 } },
+                    new LevelUpMove { Level = 13, Move = new Attaque{ Nom = "Tranch'Herbe", Type = TypePokemon.Plante, PP = 10, PPMax = 10, Puissance = 15 } }
                 }
-            },
-            ["Herbizarre"] = new Pokemon
-            {
-                Nom = "Herbizarre",
-                Niveau = 16,
-                PV = 40,
-                PVMax = 40,
-                ImageFace = "pack://application:,,,/view/image/Pokemon/herbizarre_face.png",
-                ImageDos = "pack://application:,,,/view/image/Pokemon/herbizarre_dos.png",
-                NiveauEvolution = 32,
-                Evolution = "Florizarre",
-                Attaques = new List<Attaque>
-                {
-                    new Attaque { Nom = "Charge", PP = 35, PPMax = 35, Power = 5, Type = "Normal" },
-                    new Attaque { Nom = "Fouet Lianes", PP = 15, PPMax = 15, Power = 8, Type = "Plante" }
-                },
-                LevelUpMoves = new List<LevelUpMove>
-                {
-                    new LevelUpMove { Level = 20, Move = new Attaque{ Nom = "Canon Graine", PP = 10, PPMax = 10, Power = 20, Type = "Plante" } }
-                }
-            },
-            // Ajoute Carapuce, Salamèche, etc. de la même façon
+            }
+            // Ajoute d'autres pokémons ici...
         };
 
         public static Pokemon GetData(string nom)
@@ -62,7 +42,6 @@ namespace Pokebrawl.model
 
         public static List<Pokemon> GetWildPokemons()
         {
-            // Retourne une liste d'exemplaires de pokémons sauvages
             return new List<Pokemon>
             {
                 new Pokemon {
@@ -71,10 +50,9 @@ namespace Pokebrawl.model
                     ImageDos = "pack://application:,,,/view/image/Pokemon/rattata_dos.png",
                     Attaques = new List<Attaque>
                     {
-                        new Attaque { Nom = "Charge", PP = 35, PPMax = 35, Power = 6, Type = "Normal" }
+                        new Attaque { Nom = "Charge", Type = TypePokemon.Normal, PP = 35, PPMax = 35, Puissance = 6 }
                     }
-                },
-                // Ajoute d'autres pokémons sauvages...
+                }
             };
         }
     }

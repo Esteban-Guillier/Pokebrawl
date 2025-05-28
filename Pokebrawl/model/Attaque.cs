@@ -14,5 +14,14 @@ namespace Pokebrawl.model
         public int PPMax { get; set; }
         public int PP { get; set; }
         public string Description { get; set; }
+
+        // Méthode pour les attaques de boss si besoin
+        public static System.Collections.Generic.List<Attaque> GetBossAttaques()
+        {
+            return new System.Collections.Generic.List<Attaque>
+            {
+                new Attaque { Nom = "Ultralaser", Type = TypePokemon.Normal, Puissance = 15, PP = 5, PPMax = 5, Description = "Attaque très puissante." }
+            };
+        }
     }
 }
