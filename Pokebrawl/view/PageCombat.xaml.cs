@@ -23,15 +23,19 @@ namespace Pokebrawl.view
         private Frame _mainFrame;
         private Pokemon playerPkmn;
         private Pokemon enemyPkmn;
+        private GameSession _session;
+        private bool _isPlayerTurn = true;
 
-        public PageCombat(Frame mainFrame)
+        public PageCombat(Frame mainFrame, GameSession session)
         {
             InitializeComponent();
             _mainFrame = mainFrame;
-
-            playerPkmn = AppData.Joueur.Equipe.Pokemons.Count > 0 ? AppData.Joueur.Equipe.Pokemons[0] : null;
-            enemyPkmn = new Pokemon { Nom = "Rattata", Niveau = 2, PV = 10, PVMax = 10, ImageFace = "rattata_face.png" };
-
+            _session = session;
+            PokemonEvents.OnDemandeRemplacementCapacite = (poke, newMove) =>
+            {
+                _mainFrame.Navigate(new PageRemplacementAttaque(_mainFrame, poke, newMove));
+            };
+            _session.NextCombat();
             RefreshUI();
         }
 
@@ -78,25 +82,95 @@ namespace Pokebrawl.view
                 EnemyPVBar.Value = enemyPkmn.PV;
                 EnemyPkmnLvl.Text = $"Niveau : {enemyPkmn.Niveau}";
             }
-            // Attaques
             AttackPanel.Children.Clear();
-            if (playerPkmn?.Attaques != null)
+            foreach (var atk in _session.CurrentPlayerPokemon.Attaques)
             {
-                foreach (var atk in playerPkmn.Attaques)
-                {
-                    var btn = new Button { Content = $"{atk.Nom} (PP {atk.PP}/{atk.PPMax})", Margin = new Thickness(5) };
-                    btn.Click += (s, e) => Attack_Click(atk);
-                    AttackPanel.Children.Add(btn);
-                }
+                var btn = new Button { Content = $"{atk.Nom} (PP {atk.PP}/{atk.PPMax})", Margin = new Thickness(5) };
+                btn.Click += (s, e) => Attack_Click(atk);
+                AttackPanel.Children.Add(btn);
+            }
+            // Ajoute un bouton pour utiliser une Ball si ce n'est pas un boss
+            if (!_session.IsBossFight)
+            {
+                var ballBtn = new Button { Content = "Utiliser une Ball", Margin = new Thickness(5) };
+                ballBtn.Click += UseBall_Click;
+                AttackPanel.Children.Add(ballBtn);
             }
         }
 
         private void Attack_Click(Attaque attaque)
         {
-            // Logique de combat à compléter...
-            MessageBox.Show($"{playerPkmn.Nom} utilise {attaque.Nom} !");
-            // Mets à jour les PV, PP etc.
+            if(!_isPlayerTurn) return;
+            if (attaque.PP <= 0) { MessageBox.Show("Plus de PP !"); return; }
+            attaque.PP--;
+            _session.CurrentEnemyPokemon.PV -= attaque.Power; // Ajoute un champ Power à Attaque si besoin
+            if (_session.CurrentEnemyPokemon.PV <= 0)
+            {
+                _session.CurrentEnemyPokemon.PV = 0;
+                Victory();
+            }
+            else
+            {
+                _isPlayerTurn = false;
+                RefreshUI();
+                EnemyTurn();
+            }
+        }
+        private void EnemyTurn()
+        {
+            // IA basique, attaque aléatoire
+            var atk = _session.CurrentEnemyPokemon.Attaques
+                .Where(a => a.PP > 0)
+                .OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+            if (atk != null)
+            {
+                atk.PP--;
+                _session.CurrentPlayerPokemon.PV -= atk.Power;
+                if (_session.CurrentPlayerPokemon.PV <= 0)
+                {
+                    _session.CurrentPlayerPokemon.PV = 0;
+                    Defeat();
+                    return;
+                }
+            }
+            _isPlayerTurn = true;
             RefreshUI();
+        }
+        private void UseBall_Click(object sender, RoutedEventArgs e)
+        {
+            // Décrémente le nombre de balls du joueur, tente capture, utilise le tour
+            // Si capture réussie : ajoute le Pokémon à l'équipe (si place)
+            // Sinon : tour de l'adversaire
+            MessageBox.Show("Tentative de capture (à implémenter)");
+            _isPlayerTurn = false;
+            EnemyTurn();
+        }
+
+        private void Victory()
+        {
+            MessageBox.Show("Victoire !");
+            // Gagner de l'exp, de l'argent
+            _session.Money += 50;
+            _session.CurrentPlayerPokemon.GainExp(20);
+            // Gestion du level up, apprentissage capacité, évolution...
+            if (_session.IsBossFight)
+            {
+                // Aller à la page magasin
+                _mainFrame.Navigate(new PageMagasin(_mainFrame, _session));
+            }
+            else
+            {
+                // Prochain combat
+                _session.NextCombat();
+                RefreshUI();
+            }
+        }
+
+        private void Defeat()
+        {
+            MessageBox.Show("Défaite !");
+            // Retour menu ou page Game Over
+            _mainFrame.Navigate(new PageGameOver(_mainFrame));
         }
     }
 }
