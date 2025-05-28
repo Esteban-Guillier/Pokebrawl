@@ -29,6 +29,7 @@ namespace Pokebrawl.model
         public EspecePokemon Espece { get; set; } = EspecePokemon.Classique;
         public int CoutEquipe { get; set; } = 2;
 
+        public string Evolution { get; set; } = string.Empty;
         public int? NiveauEvolution { get; set; } // Niveau d'évolution
         public List<LevelUpMove> LevelUpMoves { get; set; } = new(); // Nouvelles attaques par niveau
 
