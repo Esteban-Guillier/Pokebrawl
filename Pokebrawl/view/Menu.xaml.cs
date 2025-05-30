@@ -33,7 +33,7 @@ namespace Pokebrawl.view
         private void Jouer_Click(object sender, RoutedEventArgs e)
         {
             if (AppData.Joueur.Equipe.Pokemons.Count > 0)
-                _mainFrame.Navigate(new PageCombat(_mainFrame));
+                _mainFrame.Navigate(new PageCombat(_mainFrame, new GameSession()));
             else
                 MessageBox.Show("Ajoutez au moins un Pokémon à votre équipe !");
         }

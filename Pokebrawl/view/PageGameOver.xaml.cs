@@ -11,26 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Pokebrawl.model;
 
 namespace Pokebrawl.view
 {
     /// <summary>
-    /// Logique d'interaction pour Magasin.xaml
+    /// Logique d'interaction pour PageGameOver.xaml
     /// </summary>
-    public partial class Magasin : Window
+    public partial class PageGameOver : Window
     {
-        private Frame _mainFrame;
-        private GameSession _session;
-        public Magasin(Frame mainFrame, GameSession session)
+        public PageGameOver(Frame mainFrame)
         {
             InitializeComponent();
-            _mainFrame = mainFrame;
-            _session = session;
-        }
-        public Magasin()
-        {
-            InitializeComponent();
+            // Optionnel : logique fin de partie
         }
     }
 }
