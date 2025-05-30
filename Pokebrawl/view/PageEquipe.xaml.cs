@@ -123,12 +123,60 @@ namespace Pokebrawl.view
                 if (AppData.Joueur.Equipe.Pokemons.Count < Equipe.MaxPokemons &&
                     AppData.Joueur.Equipe.PointsUtilises + p.CoutEquipe <= Equipe.MaxPoints)
                 {
-                    AppData.Joueur.Equipe.Pokemons.Add(new Pokemon
+                    var basePkmn = PokemonDatabase.GetData(p.Nom);
+                    if (basePkmn != null)
                     {
-                        Nom = p.Nom,
-                        ImageFace = p.ImageFace,
-                        CoutEquipe = p.CoutEquipe
-                    });
+                        // Clone profond basique (pour débutant, tu peux améliorer avec un vrai clone)
+                        var clone = new Pokemon
+                        {
+                            Numero = basePkmn.Numero,
+                            Nom = basePkmn.Nom,
+                            Niveau = basePkmn.Niveau,
+                            Types = new List<TypePokemon>(basePkmn.Types),
+                            PV = basePkmn.PV,
+                            PVMax = basePkmn.PVMax,
+                            Attaque = basePkmn.Attaque,
+                            Defense = basePkmn.Defense,
+                            AttaqueSpe = basePkmn.AttaqueSpe,
+                            DefenseSpe = basePkmn.DefenseSpe,
+                            Vitesse = basePkmn.Vitesse,
+                            Stade = basePkmn.Stade,
+                            ImageFace = basePkmn.ImageFace,
+                            ImageDos = basePkmn.ImageDos,
+                            Description = basePkmn.Description,
+                            Exp = basePkmn.Exp,
+                            ExpDonnee = basePkmn.ExpDonnee,
+                            Espece = basePkmn.Espece,
+                            NiveauEvolution = basePkmn.NiveauEvolution,
+                            Evolution = basePkmn.Evolution,
+                            CoutEquipe = basePkmn.CoutEquipe,
+                            Attaques = basePkmn.Attaques.Select(a => new Attaque
+                            {
+                                Nom = a.Nom,
+                                Type = a.Type,
+                                Puissance = a.Puissance,
+                                PP = a.PP,
+                                PPMax = a.PPMax,
+                                Description = a.Description
+                            }).ToList(),
+                            LevelUpMoves = basePkmn.LevelUpMoves.Select(m => new Pokemon.LevelUpMove
+                            {
+                                Level = m.Level,
+                                Move = new Attaque
+                                {
+                                    Nom = m.Move.Nom,
+                                    Type = m.Move.Type,
+                                    Puissance = m.Move.Puissance,
+                                    PP = m.Move.PP,
+                                    PPMax = m.Move.PPMax,
+                                    Description = m.Move.Description
+                                }
+                            }).ToList()
+                        };
+                        AppData.Joueur.Equipe.Pokemons.Add(clone);
+                        EquipeList.Items.Refresh();
+                        PointsText.Text = $"Points utilisés : {AppData.Joueur.Equipe.PointsUtilises}/{Equipe.MaxPoints}";
+                    }
                     EquipeList.Items.Refresh();
                     PointsText.Text = $"Points utilisés : {AppData.Joueur.Equipe.PointsUtilises}/{Equipe.MaxPoints}";
                 }

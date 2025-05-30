@@ -21,8 +21,6 @@ namespace Pokebrawl.view
     public partial class PageCombat : Page
     {
         private Frame _mainFrame;
-        private Pokemon playerPkmn;
-        private Pokemon enemyPkmn;
         private GameSession _session;
         private bool _isPlayerTurn = true;
 
@@ -47,11 +45,9 @@ namespace Pokebrawl.view
             // Affichage Avatar joueur
             if (playerPkmn != null)
             {
-                Uri avatarUri;
-                if (Uri.IsWellFormedUriString(AppData.Joueur.Avatar, UriKind.Absolute))
-                    avatarUri = new Uri(AppData.Joueur.Avatar, UriKind.Absolute);
-                else
-                    avatarUri = new Uri(AppData.Joueur.Avatar, UriKind.Relative);
+                Uri avatarUri = Uri.IsWellFormedUriString(AppData.Joueur.Avatar, UriKind.Absolute)
+                    ? new Uri(AppData.Joueur.Avatar, UriKind.Absolute)
+                    : new Uri(AppData.Joueur.Avatar, UriKind.Relative);
                 AvatarImg.Source = new BitmapImage(avatarUri);
 
                 string playerImgPath = playerPkmn.ImageDos ?? playerPkmn.ImageFace;
@@ -89,8 +85,7 @@ namespace Pokebrawl.view
                     var btn = new Button
                     {
                         Content = $"{atk.Nom} (PP {atk.PP}/{atk.PPMax})",
-                        Margin = new Thickness(5),
-                        Width = 140
+                        Margin = new Thickness(5)
                     };
                     btn.Click += (s, e) => Attack_Click(atk);
                     AttackPanel.Children.Add(btn);
@@ -100,16 +95,16 @@ namespace Pokebrawl.view
             // Ajoute le bouton "Utiliser une Ball" si ce n'est pas un boss
             if (!_session.IsBossFight)
             {
-                var ballBtn = new Button { Content = "Utiliser une Ball", Margin = new Thickness(5), Width = 140 };
+                var ballBtn = new Button { Content = "Utiliser une Ball", Margin = new Thickness(5) };
                 ballBtn.Click += UseBall_Click;
                 AttackPanel.Children.Add(ballBtn);
             }
-
-            // Affiche/cache le bouton "Changer de Pokémon"
-            if (BtnSwitch != null)
+            // Ajoute le bouton "Changer de Pokémon" si possible
+            if (_session.Team.Count(p => p.PV > 0) > 1)
             {
-                int nbAlive = _session.Team.Count(p => p.PV > 0);
-                BtnSwitch.Visibility = nbAlive > 1 ? Visibility.Visible : Visibility.Collapsed;
+                var switchBtn = new Button { Content = "Changer de Pokémon", Margin = new Thickness(5) };
+                switchBtn.Click += SwitchPkmn_Click;
+                AttackPanel.Children.Add(switchBtn);
             }
         }
         private void EnemyTurn()
