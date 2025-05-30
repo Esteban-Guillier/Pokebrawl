@@ -160,8 +160,6 @@ namespace Pokebrawl.view
         private void Victory()
         {
             MessageBox.Show("Victoire !");
-            this.Exp += expGagne;
-            MessageBox.Show("Exp actuelle : " + this.Exp);
             _session.Money += 50;
             _session.CurrentPlayerPokemon.GainExp(20);
             // Gestion du level up, apprentissage capacité, évolution...
