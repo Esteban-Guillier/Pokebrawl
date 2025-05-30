@@ -54,7 +54,6 @@ namespace Pokebrawl.view
                     avatarUri = new Uri(AppData.Joueur.Avatar, UriKind.Relative);
                 AvatarImg.Source = new BitmapImage(avatarUri);
 
-                // Pokémon joueur (dos)
                 string playerImgPath = playerPkmn.ImageDos ?? playerPkmn.ImageFace;
                 Uri playerUri = Uri.IsWellFormedUriString(playerImgPath, UriKind.Absolute)
                     ? new Uri(playerImgPath, UriKind.Absolute)
@@ -67,7 +66,7 @@ namespace Pokebrawl.view
                 PlayerPkmnLvl.Text = $"Niveau : {playerPkmn.Niveau}";
             }
 
-            // Affichage ennemi (face)
+            // Affichage ennemi
             if (enemyPkmn != null)
             {
                 Uri enemyUri = Uri.IsWellFormedUriString(enemyPkmn.ImageFace, UriKind.Absolute)
@@ -81,28 +80,37 @@ namespace Pokebrawl.view
                 EnemyPkmnLvl.Text = $"Niveau : {enemyPkmn.Niveau}";
             }
 
-            // Générer dynamiquement les boutons d'attaque dans AttackPanel (vertical)
+            // Affichage des attaques
             AttackPanel.Children.Clear();
-            foreach (var atk in playerPkmn.Attaques)
+            if (playerPkmn != null)
             {
-                var btn = new Button
+                foreach (var atk in playerPkmn.Attaques)
                 {
-                    Content = $"{atk.Nom} (PP {atk.PP}/{atk.PPMax})",
-                    Margin = new Thickness(0, 5, 0, 0),
-                    Width = 140
-                };
-                btn.Click += (s, e) => Attack_Click(atk);
-                AttackPanel.Children.Add(btn);
+                    var btn = new Button
+                    {
+                        Content = $"{atk.Nom} (PP {atk.PP}/{atk.PPMax})",
+                        Margin = new Thickness(5),
+                        Width = 140
+                    };
+                    btn.Click += (s, e) => Attack_Click(atk);
+                    AttackPanel.Children.Add(btn);
+                }
             }
 
-            // Afficher ou cacher le bouton "Utiliser une Ball"
-            if (BtnBall != null)
-                BtnBall.Visibility = !_session.IsBossFight ? Visibility.Visible : Visibility.Collapsed;
+            // Ajoute le bouton "Utiliser une Ball" si ce n'est pas un boss
+            if (!_session.IsBossFight)
+            {
+                var ballBtn = new Button { Content = "Utiliser une Ball", Margin = new Thickness(5), Width = 140 };
+                ballBtn.Click += UseBall_Click;
+                AttackPanel.Children.Add(ballBtn);
+            }
 
-            // Afficher ou cacher le bouton "Changer de Pokémon" (si au moins 2 Pokémon vivants)
-            int nbAlive = _session.Team.Count(p => p.PV > 0);
+            // Affiche/cache le bouton "Changer de Pokémon"
             if (BtnSwitch != null)
+            {
+                int nbAlive = _session.Team.Count(p => p.PV > 0);
                 BtnSwitch.Visibility = nbAlive > 1 ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
         private void EnemyTurn()
         {
