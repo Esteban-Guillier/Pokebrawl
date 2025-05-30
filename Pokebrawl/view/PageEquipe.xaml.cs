@@ -123,10 +123,10 @@ namespace Pokebrawl.view
                 if (AppData.Joueur.Equipe.Pokemons.Count < Equipe.MaxPokemons &&
                     AppData.Joueur.Equipe.PointsUtilises + p.CoutEquipe <= Equipe.MaxPoints)
                 {
+                    // Clone profond à partir de la base de données pour garder les attaques, images, etc
                     var basePkmn = PokemonDatabase.GetData(p.Nom);
                     if (basePkmn != null)
                     {
-                        // Clone profond basique (pour débutant, tu peux améliorer avec un vrai clone)
                         var clone = new Pokemon
                         {
                             Numero = basePkmn.Numero,
@@ -155,11 +155,11 @@ namespace Pokebrawl.view
                                 Nom = a.Nom,
                                 Type = a.Type,
                                 Puissance = a.Puissance,
-                                PP = a.PP,
+                                PP = a.PPMax,
                                 PPMax = a.PPMax,
                                 Description = a.Description
                             }).ToList(),
-                            LevelUpMoves = basePkmn.LevelUpMoves.Select(m => new Pokemon.LevelUpMove
+                            LevelUpMoves = basePkmn.LevelUpMoves?.Select(m => new Pokemon.LevelUpMove
                             {
                                 Level = m.Level,
                                 Move = new Attaque
@@ -167,18 +167,16 @@ namespace Pokebrawl.view
                                     Nom = m.Move.Nom,
                                     Type = m.Move.Type,
                                     Puissance = m.Move.Puissance,
-                                    PP = m.Move.PP,
+                                    PP = m.Move.PPMax,
                                     PPMax = m.Move.PPMax,
                                     Description = m.Move.Description
                                 }
-                            }).ToList()
+                            }).ToList() ?? new List<Pokemon.LevelUpMove>()
                         };
                         AppData.Joueur.Equipe.Pokemons.Add(clone);
                         EquipeList.Items.Refresh();
                         PointsText.Text = $"Points utilisés : {AppData.Joueur.Equipe.PointsUtilises}/{Equipe.MaxPoints}";
                     }
-                    EquipeList.Items.Refresh();
-                    PointsText.Text = $"Points utilisés : {AppData.Joueur.Equipe.PointsUtilises}/{Equipe.MaxPoints}";
                 }
             }
         }
