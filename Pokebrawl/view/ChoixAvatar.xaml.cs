@@ -41,7 +41,7 @@ namespace Pokebrawl.view
             var bouton = sender as Button;
             var avatarPath = bouton?.Tag as string;
             AppData.Joueur.Avatar = avatarPath ?? avatars[0];
-
+            _mainFrame.Navigate(new Menu(_mainFrame));
         }
     }
 }
