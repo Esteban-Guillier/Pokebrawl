@@ -7,26 +7,51 @@
         mc:Ignorable="d"
         Title="Combat" Height="450" Width="800">
     <Grid>
-        <!-- Avatar joueur à gauche -->
-        <Image Name="AvatarImg" Width="80" Height="80" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
-        <!-- Pokémon joueur de dos -->
-        <Image Name="PlayerPkmnImg" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,60"/>
-        <!-- Barre et infos du Pokémon joueur -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,60">
-            <TextBlock Name="PlayerPkmnName" FontWeight="Bold"/>
-            <ProgressBar Name="PlayerPVBar" Width="120" Height="20"/>
-            <TextBlock Name="PlayerPkmnLvl"/>
-        </StackPanel>
-        <!-- Pokémon adverse de face -->
-        <Image Name="EnemyPkmnImg" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0"/>
-        <!-- Infos adversaire -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,60,0,0">
+        <!-- 3 colonnes : Joueur | Arène | Actions -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <!-- 2 lignes : Adversaire (haut) | Joueur (bas) -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <!-- ADVERSAIRE EN HAUT DROITE -->
+        <Image Name="EnemyPkmnImg" Width="180" Height="180"
+               Grid.Row="0" Grid.Column="2"
+               HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,40,0"/>
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="0" Grid.Column="1"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,30,0,0">
             <TextBlock Name="EnemyPkmnName" FontWeight="Bold"/>
-            <ProgressBar Name="EnemyPVBar" Width="120" Height="20"/>
+            <ProgressBar Name="EnemyPVBar" Width="140" Height="20"/>
             <TextBlock Name="EnemyPkmnLvl"/>
         </StackPanel>
-        <!-- Liste des attaques -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Name="AttackPanel">
+
+        <!-- JOUEUR EN BAS GAUCHE -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="30,0,0,30">
+            <Image Name="PlayerPkmnImg" Width="180" Height="180" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                <TextBlock Name="PlayerPkmnName" FontWeight="Bold"/>
+                <ProgressBar Name="PlayerPVBar" Width="140" Height="20"/>
+                <TextBlock Name="PlayerPkmnLvl"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- AVATAR JOUEUR (optionnel) -->
+        <Image Name="AvatarImg" Width="80" Height="80"
+               Grid.Row="1" Grid.Column="0"
+               HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,60,0,0"/>
+
+        <!-- ATTAQUES & ACTIONS EN BAS DROITE -->
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,30">
+            <TextBlock Text="Attaques :" FontWeight="Bold"/>
+            <StackPanel Name="AttackPanel" Orientation="Vertical"/>
+            <Button Name="BtnSwitch" Content="Changer de Pokémon" Width="160" Margin="0,10,0,0" Click="SwitchPkmn_Click"/>
+            <Button Name="BtnBall" Content="Utiliser une Ball" Width="160" Margin="0,10,0,0" Click="UseBall_Click"/>
         </StackPanel>
     </Grid>
 </Page>
