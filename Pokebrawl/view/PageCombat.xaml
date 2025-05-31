@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="Combat" Height="450" Width="800">
     <Grid>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="view/image/Fond/Combat.jpg" Stretch="Fill"/>
+            </Grid.Background>
+            <!-- ...le reste de ton interface... -->
+        </Grid>
         <!-- 3 colonnes : Joueur | Arène | Actions -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
