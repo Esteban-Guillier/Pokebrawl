@@ -15,6 +15,7 @@
     <None Remove="view\image\Caractere\Pierre.png" />
     <None Remove="view\image\Caractere\Sacha.png" />
     <None Remove="view\image\Caractere\Tiplouf.png" />
+    <None Remove="view\image\Fond\Avatar.jpg" />
     <None Remove="view\image\Fond\Combat.jpg" />
     <None Remove="view\image\Fond\Combat2.jpg" />
     <None Remove="view\image\Fond\Combat3.jpg" />
@@ -502,6 +503,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Caractere\Tiplouf.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\Avatar.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Fond\Combat.jpg">

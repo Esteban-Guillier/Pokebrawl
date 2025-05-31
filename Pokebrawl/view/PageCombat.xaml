@@ -8,7 +8,7 @@
         Title="Combat" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="image/Fond/Combat3.jpg" Stretch="Fill"/>
+            <ImageBrush ImageSource="image/Fond/Combat.jpg" Stretch="Fill"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>

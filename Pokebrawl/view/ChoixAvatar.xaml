@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="ChoixAvatar" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="image/Fond/Avatar.jpg" Stretch="Fill"/>
+        </Grid.Background>
         <TextBlock Text="Choisissez votre avatar" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"/>
         <ItemsControl x:Name="AvatarList" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ItemsControl.ItemsPanel>
