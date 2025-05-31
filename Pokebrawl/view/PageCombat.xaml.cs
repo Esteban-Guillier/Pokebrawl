@@ -109,10 +109,25 @@ namespace Pokebrawl.view
         }
         private void EnemyTurn()
         {
-            // ... logique d'attaque adverse ...
-            if (_session.CurrentPlayerPokemon.PV <= 0)
+            var enemy = _session.CurrentEnemyPokemon;
+            var player = _session.CurrentPlayerPokemon;
+
+            // Choisit une attaque aléatoire de l'adversaire
+            var atk = enemy.Attaques.Where(a => a.PP > 0).OrderBy(_ => Guid.NewGuid()).FirstOrDefault();
+            if (atk != null)
             {
-                // Essaye de switcher de Pokémon
+                atk.PP--;
+                player.PV -= atk.Puissance;
+                if (player.PV < 0) player.PV = 0;
+                MessageBox.Show($"{enemy.Nom} utilise {atk.Nom} !");
+            }
+            else
+            {
+                MessageBox.Show($"{enemy.Nom} n'a plus de PP !");
+            }
+
+            if (player.PV <= 0)
+            {
                 if (_session.SwitchToNextAlivePlayerPokemon())
                 {
                     MessageBox.Show("Votre Pokémon est KO ! Envoi du suivant.");

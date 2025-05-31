@@ -61,11 +61,66 @@ namespace Pokebrawl.model
 
         private Pokemon GenerateRandomPokemon()
         {
-            var wilds = PokemonDatabase.GetWildPokemons();
-            var basePkmn = wilds[rng.Next(wilds.Count)];
-            basePkmn.PV = basePkmn.PVMax;
-            basePkmn.Niveau = rng.Next(1, 10);
-            return basePkmn;
+            // Filtre selon le nombre de combats
+            int maxLevel = Math.Min(10 + CombatNumber, 100); // Ex: 10 combats -> niv max 20
+            var possibles = PokemonDatabase.Data.Values
+                .Where(p => p.Niveau <= maxLevel && p.Espece == EspecePokemon.Classique)
+                .ToList();
+
+            if (!possibles.Any())
+                possibles = PokemonDatabase.Data.Values.Where(p => p.Espece == EspecePokemon.Classique).ToList();
+
+            var rng = new Random();
+            var basePkmn = possibles[rng.Next(possibles.Count)];
+
+            // Clone profond pour éviter de modifier l’original
+            var wild = new Pokemon
+            {
+                Numero = basePkmn.Numero,
+                Nom = basePkmn.Nom,
+                Niveau = basePkmn.Niveau,
+                Types = new List<TypePokemon>(basePkmn.Types),
+                PV = basePkmn.PVMax,
+                PVMax = basePkmn.PVMax,
+                Attaque = basePkmn.Attaque,
+                Defense = basePkmn.Defense,
+                AttaqueSpe = basePkmn.AttaqueSpe,
+                DefenseSpe = basePkmn.DefenseSpe,
+                Vitesse = basePkmn.Vitesse,
+                Stade = basePkmn.Stade,
+                ImageFace = basePkmn.ImageFace,
+                ImageDos = basePkmn.ImageDos,
+                Description = basePkmn.Description,
+                Exp = basePkmn.Exp,
+                ExpDonnee = basePkmn.ExpDonnee,
+                Espece = basePkmn.Espece,
+                NiveauEvolution = basePkmn.NiveauEvolution,
+                Evolution = basePkmn.Evolution,
+                CoutEquipe = basePkmn.CoutEquipe,
+                Attaques = basePkmn.Attaques.Select(a => new Attaque
+                {
+                    Nom = a.Nom,
+                    Type = a.Type,
+                    Puissance = a.Puissance,
+                    PP = a.PPMax,
+                    PPMax = a.PPMax,
+                    Description = a.Description
+                }).ToList(),
+                LevelUpMoves = basePkmn.LevelUpMoves?.Select(m => new Pokemon.LevelUpMove
+                {
+                    Level = m.Level,
+                    Move = new Attaque
+                    {
+                        Nom = m.Move.Nom,
+                        Type = m.Move.Type,
+                        Puissance = m.Move.Puissance,
+                        PP = m.Move.PPMax,
+                        PPMax = m.Move.PPMax,
+                        Description = m.Move.Description
+                    }
+                }).ToList() ?? new List<Pokemon.LevelUpMove>()
+            };
+            return wild;
         }
     }
 }

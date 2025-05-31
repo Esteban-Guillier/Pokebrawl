@@ -4838,21 +4838,5 @@ namespace Pokebrawl.model
         {
             return Data.ContainsKey(nom) ? Data[nom] : null;
         }
-
-        public static List<Pokemon> GetWildPokemons()
-        {
-            return new List<Pokemon>
-            {
-                new Pokemon {
-                    Nom = "Rattata", Niveau = 3, PV = 12, PVMax = 12,
-                    ImageFace = "pack://application:,,,/view/image/Pokemon_asset/Front/151.png",
-                    ImageDos = "pack://application:,,,/view/image/Pokemon_asset/Front/151.png",
-                    Attaques = new List<Attaque>
-                    {
-                        new Attaque { Nom = "Charge", Type = TypePokemon.Normal, PP = 35, PPMax = 35, Puissance = 6 }
-                    }
-                }
-            };
-        }
     }
 }
