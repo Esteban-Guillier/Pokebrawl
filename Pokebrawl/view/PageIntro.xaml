@@ -6,25 +6,47 @@
       xmlns:local="clr-namespace:Pokebrawl.view"
       mc:Ignorable="d"
       Title="PageIntro">
-
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="image/fond/intro.jpg" Stretch="Fill"/>
         </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Pour l'image du titre -->
+            <RowDefinition Height="*"/>
+            <!-- Espace vide (élastique) -->
+            <RowDefinition Height="Auto"/>
+            <!-- Pour le bouton -->
+            <RowDefinition Height="50"/>
+            <!-- Optionnel: espace en bas -->
+        </Grid.RowDefinitions>
 
-        <Image Source="image/Fond/Titre.png" Width="300" Height="107" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Image Source="image/Fond/Titre.png"
+               Width="300" Height="107"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Grid.Row="0"/>
 
-        <Button Content="Démarrer le jeu" Width="200" Height="50" FontSize="16" Background="OrangeRed"  Foreground="White" BorderBrush="Transparent" Margin="300,275,300,109" Click="Jouer_Click">
+        <Button Content="Démarrer le jeu"
+                Width="200" Height="50"
+                FontSize="16"
+                Background="OrangeRed"
+                Foreground="White"
+                BorderBrush="Transparent"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Grid.Row="2"
+                Click="Jouer_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="15" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                    <Border CornerRadius="15"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-
-        <TextBlock HorizontalAlignment="Left" Margin="25,408,0,0" Text="Esteban Guillier"/>
-        <TextBlock HorizontalAlignment="Left" Margin="130,408,0,0" Text="Alexis Peiu"/>
     </Grid>
 </Page>

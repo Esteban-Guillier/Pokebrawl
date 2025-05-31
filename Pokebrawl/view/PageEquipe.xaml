@@ -8,7 +8,7 @@
       Title="Equipe">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.Background>
-            <ImageBrush ImageSource="image/fond/pc.png" Stretch="Fill"/>
+            <ImageBrush ImageSource="image/fond/fond-equipe.png" Stretch="Fill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
