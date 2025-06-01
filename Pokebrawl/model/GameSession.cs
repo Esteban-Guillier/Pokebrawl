@@ -131,5 +131,6 @@ namespace Pokebrawl.model
             };
             return wild;
         }
+
     }
 }
