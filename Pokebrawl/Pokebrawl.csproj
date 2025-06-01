@@ -28,6 +28,8 @@
     <None Remove="view\image\Fond\PC2.png" />
     <None Remove="view\image\Fond\poke-intro.png" />
     <None Remove="view\image\Fond\Titre.png" />
+    <None Remove="view\image\icon\Ball.png" />
+    <None Remove="view\image\icon\potion.png" />
     <None Remove="view\image\Pokemon_asset\Back\001.png" />
     <None Remove="view\image\Pokemon_asset\Back\002.png" />
     <None Remove="view\image\Pokemon_asset\Back\003.png" />
@@ -543,6 +545,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Fond\Titre.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\icon\Ball.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Pokemon_asset\Back\001.png">

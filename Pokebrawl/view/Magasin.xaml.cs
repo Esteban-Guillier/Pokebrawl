@@ -12,8 +12,8 @@ namespace Pokebrawl.view
         private GameSession _session;
         public List<MagasinItem> Items = new()
         {
-            new MagasinItem { Nom = "Potion", Image = "/view/image/objets/potion.png", Prix = 200, Type = ItemType.Potion },
-            new MagasinItem { Nom = "Ball", Image = "/view/image/objets/ball.png", Prix = 150, Type = ItemType.Ball }
+            new MagasinItem { Nom = "Potion", Image = "/view/image/icon/potion.png", Prix = 200, Type = ItemType.Potion },
+            new MagasinItem { Nom = "Ball", Image = "/view/image/icon/Ball.png", Prix = 150, Type = ItemType.Ball }
         };
 
         public PageMagasin(Frame mainFrame, GameSession session)
@@ -22,13 +22,8 @@ namespace Pokebrawl.view
             _mainFrame = mainFrame;
             _session = session;
             ShopItemsList.ItemsSource = Items;
-            UpdateArgent();
         }
 
-        private void UpdateArgent()
-        {
-            ArgentText.Text = $"Argent : {_joueur.Argent} ₽";
-        }
 
         private void Acheter_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +47,7 @@ namespace Pokebrawl.view
                         pokemon.PV = pokemon.PVMax;
                         _joueur.Argent -= item.Prix;
                         _joueur.Inventaire.Ajouter(item.Nom, 1);
-                        UpdateArgent();
+ 
                         MessageBox.Show($"{pokemon.Nom} est soigné !");
                     }
                 }
@@ -61,7 +56,6 @@ namespace Pokebrawl.view
             {
                 _joueur.Argent -= item.Prix;
                 _joueur.Inventaire.Ajouter(item.Nom, 1);
-                UpdateArgent();
                 MessageBox.Show("Ball ajoutée à l'inventaire !");
             }
         }
