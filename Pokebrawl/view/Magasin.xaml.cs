@@ -9,17 +9,18 @@ namespace Pokebrawl.view
     {
         private Joueur _joueur;
         private Frame _mainFrame;
+        private GameSession _session;
         public List<MagasinItem> Items = new()
         {
             new MagasinItem { Nom = "Potion", Image = "/view/image/objets/potion.png", Prix = 200, Type = ItemType.Potion },
             new MagasinItem { Nom = "Ball", Image = "/view/image/objets/ball.png", Prix = 150, Type = ItemType.Ball }
         };
 
-        public PageMagasin(Frame mainFrame, Joueur joueur)
+        public PageMagasin(Frame mainFrame, GameSession session)
         {
             InitializeComponent();
             _mainFrame = mainFrame;
-            _joueur = joueur;
+            _session = session;
             ShopItemsList.ItemsSource = Items;
             UpdateArgent();
         }
@@ -67,7 +68,7 @@ namespace Pokebrawl.view
 
         private void Continuer_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new PageCombat(_mainFrame, _joueur));
+            _mainFrame.Navigate(new PageCombat(_mainFrame, _session));
         }
     }
 }
