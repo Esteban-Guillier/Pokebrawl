@@ -49,6 +49,7 @@ namespace Pokebrawl.model
                 if (Team[i].PV > 0)
                 {
                     _currentPlayerIndex = i;
+                    _currentPlayerPokemon = Team[i]; 
                     return true;
                 }
             }
