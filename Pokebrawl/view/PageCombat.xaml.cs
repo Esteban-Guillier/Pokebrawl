@@ -216,7 +216,7 @@ namespace Pokebrawl.view
             if (_session.IsBossFight)
             {
                 // Aller à la page magasin
-                _mainFrame.Navigate(new Magasin(_mainFrame, _session));
+                _mainFrame.Navigate(new PageMagasin(_mainFrame, _session));
             }
             else
             {
