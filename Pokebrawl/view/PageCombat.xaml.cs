@@ -33,7 +33,22 @@ namespace Pokebrawl.view
             {
                 _mainFrame.Navigate(new PageRemplacementAttaque(_mainFrame, poke, newMove));
             };
-            _session.NextCombat();
+            try
+            {
+                _session.NextCombat();
+                if (_session.CurrentPlayerPokemon == null || _session.CurrentPlayerPokemon.PV <= 0)
+                {
+                    MessageBox.Show("Aucun Pokémon valide pour combattre !");
+                    _mainFrame.Navigate(new PageGameOver(_mainFrame));
+                    return;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Aucun Pokémon valide pour combattre !");
+                _mainFrame.Navigate(new PageGameOver(_mainFrame));
+                return;
+            }
             RefreshUI();
         }
 
@@ -228,7 +243,7 @@ namespace Pokebrawl.view
                 else
                 {
                     // Ajouter une copie du Pokémon ennemi à l'équipe du joueur
-                    var clone = _session.CurrentEnemyPokemon;
+                    var clone = _session.CurrentEnemyPokemon.Clone();
                     AppData.Joueur.Equipe.Pokemons.Add(clone);
                     MessageBox.Show($"{_session.CurrentEnemyPokemon.Nom} capturé avec succès ");
                 }
