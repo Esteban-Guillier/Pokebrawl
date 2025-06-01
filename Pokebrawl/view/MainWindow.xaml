@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Pokebrawl"
         xmlns:view="clr-namespace:Pokebrawl.view"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowState="Maximized">
     <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
 </Window>

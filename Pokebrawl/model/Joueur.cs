@@ -14,6 +14,7 @@ namespace Pokebrawl.model
         public string Avatar { get; set; }
         public Equipe Equipe { get; set; } = new Equipe();
         public int Argent { get; set; }
+        public int Balls { get; set; }
         public List<Objet> Objets { get; set; } = new List<Objet>();
     }
 }

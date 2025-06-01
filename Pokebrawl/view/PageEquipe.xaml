@@ -12,21 +12,45 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!-- Liste des Pokémon starters -->
-        <ListBox Name="StartersList" Grid.Row="0" DisplayMemberPath="Nom"
-                 SelectionMode="Single"/>
+        <ListBox x:Name="StartersList" SelectionMode="Single" Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Image Source="{Binding ImageFace}" Width="50" Height="50" Margin="0,0,10,0"/>
+                        <TextBlock Text="{Binding Nom}" VerticalAlignment="Center" FontSize="16"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <!-- Affichage de l'équipe -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <ItemsControl Name="EquipeList">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <Image Source="{Binding ImageFace}" Width="60" Height="60"/>
-                            <Button Content="Retirer" Click="Retirer_Click"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <TextBlock Name="PointsText" Margin="20,0"/>
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+
+            <TextBlock Name="PointsText" 
+               Margin="0,0,0,10" 
+               FontWeight="Bold" 
+               FontSize="16" 
+               TextAlignment="Center" 
+               HorizontalAlignment="Center"/>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="120">
+                <ItemsControl Name="EquipeList" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="10" Background="#EFEFEF" Padding="5">
+                                <StackPanel>
+                                    <Image Source="{Binding ImageFace}" Width="60" Height="60" HorizontalAlignment="Center"/>
+                                    <Button Content="Retirer" Click="Retirer_Click" Margin="0,5,0,0" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
         <Button Content="Retour" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20"
                 Click="Retour_Click"/>
