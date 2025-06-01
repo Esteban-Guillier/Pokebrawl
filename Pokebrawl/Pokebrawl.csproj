@@ -21,6 +21,7 @@
     <None Remove="view\image\Fond\Combat3.jpg" />
     <None Remove="view\image\Fond\dracollosse.png" />
     <None Remove="view\image\Fond\Fond-equipe.png" />
+    <None Remove="view\image\Fond\fond-magasin2.jpg" />
     <None Remove="view\image\Fond\Intro.jpg" />
     <None Remove="view\image\Fond\Intro.png" />
     <None Remove="view\image\Fond\Page intro.png" />
@@ -524,6 +525,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Fond\Fond-equipe.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\fond-magasin2.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Fond\Intro.jpg">

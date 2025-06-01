@@ -12,7 +12,7 @@ namespace Pokebrawl.view
         private GameSession _session;
         public List<MagasinItem> Items = new()
         {
-            new MagasinItem { Nom = "Potion", Image = "/view/image/icon/potion.png", Prix = 200, Type = ItemType.Potion },
+            new MagasinItem { Nom = "Potion", Image = "/view/image/icon/Ball.png", Prix = 200, Type = ItemType.Potion },
             new MagasinItem { Nom = "Ball", Image = "/view/image/icon/Ball.png", Prix = 150, Type = ItemType.Ball }
         };
 
