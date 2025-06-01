@@ -132,16 +132,13 @@ namespace Pokebrawl.view
 
         private void SwitchPkmn_Click(object sender, RoutedEventArgs e)
         {
-            // Liste des Pokémon vivants sauf celui actuellement en combat
             var remplaçants = _session.Team.Where(p => p.PV > 0 && p != _session.CurrentPlayerPokemon).ToList();
-
             if (remplaçants.Count == 0)
             {
                 MessageBox.Show("Aucun autre Pokémon disponible !");
                 return;
             }
-
-            var choixWindow = new ChoixPokemonWindow(remplaçants);
+            var choixWindow = new ChoixPokemonWindow(remplaçants, "Choisissez un Pokémon à envoyer :", "Envoyer");
             if (choixWindow.ShowDialog() == true)
             {
                 var choisi = choixWindow.PokemonSelectionne;
@@ -261,8 +258,15 @@ namespace Pokebrawl.view
         private void Victory()
         {
             MessageBox.Show("Victoire !");
-            _session.Money += 50;
-            _session.CurrentPlayerPokemon.GainExp(20);
+            AppData.Joueur.Argent += 50;
+
+            var sessionPokemon = _session.CurrentPlayerPokemon;
+            var joueurPokemon = AppData.Joueur.Equipe.Pokemons.FirstOrDefault(p => p.Nom == sessionPokemon.Nom);
+
+            if (joueurPokemon != null)
+            {
+                joueurPokemon.GainExp(20);
+            }
             // Gestion du level up, apprentissage capacité, évolution...
             if (_session.IsBossFight)
             {

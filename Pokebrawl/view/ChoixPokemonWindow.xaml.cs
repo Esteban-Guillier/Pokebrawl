@@ -15,20 +15,19 @@ using Pokebrawl.model;
 
 namespace Pokebrawl.view
 {
-    /// <summary>
-    /// Logique d'interaction pour ChoixPokemonWindow.xaml
-    /// </summary>
     public partial class ChoixPokemonWindow : Window
     {
         public Pokemon PokemonSelectionne { get; private set; }
 
-        public ChoixPokemonWindow(List<Pokemon> pokemons)
+        public ChoixPokemonWindow(List<Pokemon> pokemons, string titre = "Choisissez un Pokémon :", string action = "Valider")
         {
             InitializeComponent();
             PokemonsList.ItemsSource = pokemons;
+            TitreText.Text = titre;
+            BtnAction.Content = action;
         }
 
-        private void Soigner_Click(object sender, RoutedEventArgs e)
+        private void Action_Click(object sender, RoutedEventArgs e)
         {
             if (PokemonsList.SelectedItem is Pokemon p)
             {
