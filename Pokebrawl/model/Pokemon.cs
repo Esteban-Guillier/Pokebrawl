@@ -82,7 +82,7 @@ namespace Pokebrawl.model
             }
         }
         private Attaque ChercheNouvelleAttaque() { /* Retourne une nouvelle attaque à ce niveau si dispo */ return null; }
-    }
+    
 
     public Pokemon Clone()
         {
