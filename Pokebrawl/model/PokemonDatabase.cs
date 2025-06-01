@@ -3876,10 +3876,10 @@ namespace Pokebrawl.model
         new Pokemon.LevelUpMove { Level = 40, Move = new Attaque{ Nom = "Laser Glace", Type = TypePokemon.Glace, PP = 10, PPMax = 10, Puissance = 25, Description = "Attaque Glace puissante." } }
     }
             },
-            ["M. Mime"] = new Pokemon
+            ["M.Mime"] = new Pokemon
             {
                 Numero = 122,
-                Nom = "M. Mime",
+                Nom = "M.Mime",
                 Niveau = 20,
                 Types = new List<TypePokemon> { TypePokemon.Psy, TypePokemon.Fée },
                 PV = 15,

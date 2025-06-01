@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:Pokebrawl.view"
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="800">
-    <StackPanel HorizontalAlignment="Center" Margin="20">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="image/fond/intro.png" Stretch="Fill"/>
+        </Grid.Background>
+        <StackPanel HorizontalAlignment="Center" Margin="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
             <Button Content="Équipe" Width="150" Height="50" Margin="10" Click="Equipe_Click"/>
             <Button Content="Jouer" Width="150" Height="50" Margin="10" Click="Jouer_Click" Name="BtnJouer"/>
         </StackPanel>
@@ -25,4 +29,5 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </StackPanel>
+    </Grid>
 </Page>

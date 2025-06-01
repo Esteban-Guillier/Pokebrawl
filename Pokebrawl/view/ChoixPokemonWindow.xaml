@@ -1,0 +1,14 @@
+﻿<Window x:Class="Pokebrawl.view.ChoixPokemonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pokebrawl.view"
+        mc:Ignorable="d"
+        Title="Choisir un Pokémon à soigner" Height="320" Width="380" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="18">
+        <TextBlock Text="Choisissez un Pokémon à soigner :" FontWeight="Bold" Margin="0,0,0,15"/>
+        <ListBox Name="PokemonsList" DisplayMemberPath="Nom" Height="180"/>
+        <Button Content="Soigner" Width="120" Margin="0,14,0,0" HorizontalAlignment="Center" Click="Soigner_Click"/>
+    </StackPanel>
+</Window>
