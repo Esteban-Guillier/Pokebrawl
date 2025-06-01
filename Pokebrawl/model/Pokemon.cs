@@ -83,4 +83,55 @@ namespace Pokebrawl.model
         }
         private Attaque ChercheNouvelleAttaque() { /* Retourne une nouvelle attaque à ce niveau si dispo */ return null; }
     }
+
+    public Pokemon Clone()
+        {
+            return new Pokemon
+            {
+                Numero = this.Numero,
+                Nom = this.Nom,
+                Niveau = this.Niveau,
+                Types = new List<TypePokemon>(this.Types),
+                PV = this.PVMax, // Full PV au début d'une session de combat
+                PVMax = this.PVMax,
+                Attaque = this.Attaque,
+                Defense = this.Defense,
+                AttaqueSpe = this.AttaqueSpe,
+                DefenseSpe = this.DefenseSpe,
+                Vitesse = this.Vitesse,
+                Stade = this.Stade,
+                ImageFace = this.ImageFace,
+                ImageDos = this.ImageDos,
+                Description = this.Description,
+                Exp = this.Exp,
+                ExpDonnee = this.ExpDonnee,
+                Espece = this.Espece,
+                CoutEquipe = this.CoutEquipe,
+                Evolution = this.Evolution,
+                NiveauEvolution = this.NiveauEvolution,
+                Attaques = this.Attaques?.Select(a => new Attaque
+                {
+                    Nom = a.Nom,
+                    Type = a.Type,
+                    Puissance = a.Puissance,
+                    PP = a.PPMax,
+                    PPMax = a.PPMax,
+                    Description = a.Description
+                }).ToList() ?? new List<Attaque>(),
+                LevelUpMoves = this.LevelUpMoves?.Select(m => new LevelUpMove
+                {
+                    Level = m.Level,
+                    Move = new Attaque
+                    {
+                        Nom = m.Move.Nom,
+                        Type = m.Move.Type,
+                        Puissance = m.Move.Puissance,
+                        PP = m.Move.PPMax,
+                        PPMax = m.Move.PPMax,
+                        Description = m.Move.Description
+                    }
+                }).ToList() ?? new List<LevelUpMove>()
+            };
+        }
+    }
 }

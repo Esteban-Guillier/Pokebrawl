@@ -42,6 +42,13 @@ namespace Pokebrawl.view
             var playerPkmn = _session.CurrentPlayerPokemon;
             var enemyPkmn = _session.CurrentEnemyPokemon;
 
+            if (playerPkmn == null || playerPkmn.PV <= 0)
+            {
+                MessageBox.Show("Aucun Pokémon valide pour combattre !");
+                _mainFrame.Navigate(new PageGameOver(_mainFrame));
+                return;
+            }
+
             // Affichage Avatar joueur
             if (playerPkmn != null)
             {

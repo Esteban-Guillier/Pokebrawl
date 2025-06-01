@@ -62,7 +62,7 @@ namespace Pokebrawl.view
 
         private void Continuer_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new PageCombat(_mainFrame, _session));
+            _mainFrame.Navigate(new PageCombat(_mainFrame, new GameSession(_joueur.Equipe.Pokemons)));
         }
     }
 }

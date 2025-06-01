@@ -21,12 +21,28 @@ namespace Pokebrawl.model
 
         public GameSession(List<Pokemon> team)
         {
-            Team = team;
+            // Clone profond pour éviter de manipuler la team du joueur directement
+            Team = team.Select(p => p.Clone()).ToList();
+            // Toujours sélectionner le premier vivant
+            _currentPlayerIndex = Team.FindIndex(p => p.PV > 0);
+            if (_currentPlayerIndex == -1)
+                throw new ArgumentException("Aucun Pokémon vivant dans l'équipe !");
         }
 
         public void NextCombat()
         {
-            _currentPlayerIndex = 0; // Remet le joueur au début à chaque combat
+            // Soigne tous les Pokémon de l'équipe entre chaque combat (option RPG classique)
+            foreach (var p in Team)
+            {
+                p.PV = p.PVMax;
+                foreach (var atk in p.Attaques)
+                    atk.PP = atk.PPMax;
+            }
+            // Sélectionne le premier Pokémon vivant
+            _currentPlayerIndex = Team.FindIndex(p => p.PV > 0);
+            if (_currentPlayerIndex == -1)
+                throw new ArgumentException("Aucun Pokémon vivant pour le combat !");
+            // ... suite inchangée ...
             if (IsBossFight)
                 CurrentEnemyPokemon = GenerateBoss(CombatNumber / 10);
             else
@@ -45,6 +61,15 @@ namespace Pokebrawl.model
         public bool SwitchToNextAlivePlayerPokemon()
         {
             for (int i = _currentPlayerIndex + 1; i < Team.Count; ++i)
+            {
+                if (Team[i].PV > 0)
+                {
+                    _currentPlayerIndex = i;
+                    return true;
+                }
+            }
+            // Boucle pour revenir au début si besoin
+            for (int i = 0; i < _currentPlayerIndex; ++i)
             {
                 if (Team[i].PV > 0)
                 {
