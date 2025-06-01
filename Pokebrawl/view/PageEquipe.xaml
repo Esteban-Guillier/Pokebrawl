@@ -10,76 +10,87 @@
         <Grid.Background>
             <ImageBrush ImageSource="image/fond/fond-equipe.png" Stretch="Fill"/>
         </Grid.Background>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
         <!-- Liste des Pokémon starters -->
-        <ListBox Name="StartersList"
-         Grid.Row="0"
-         SelectionMode="Single"
-         Background="Transparent"
-         BorderThickness="0"
-         HorizontalContentAlignment="Center"
-         VerticalContentAlignment="Top"
-         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-         Width="800">
+        <ListBox x:Name="StartersList"
+                 Grid.Row="0"
+                 SelectionMode="Single"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Top"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Width="800"
+                 Margin="10">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"
-                       ItemWidth="140"
-                       ItemHeight="140"/>
+                    <WrapPanel Orientation="Horizontal" ItemWidth="140" ItemHeight="140"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border CornerRadius="12"
-                    BorderThickness="1"
-                    BorderBrush="DarkSlateBlue"
-                    Background="#99FFFFFF"
-                    Margin="8"
-                    Padding="8">
+                            BorderThickness="1"
+                            BorderBrush="DarkSlateBlue"
+                            Background="#99FFFFFF"
+                            Margin="8"
+                            Padding="8">
                         <StackPanel Orientation="Vertical"
-                            Width="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center">
-                            <Image Source="{Binding ImageFace}"
-                           Height="60"
-                           Stretch="Uniform"
-                           HorizontalAlignment="Center"/>
+                                    Width="120"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Image Source="{Binding ImageFace}" Height="60" Stretch="Uniform" HorizontalAlignment="Center"/>
                             <TextBlock Text="{Binding Nom}" 
-                               FontWeight="Bold" 
-                               FontSize="15"
-                               Margin="0,10,0,0"
-                               HorizontalAlignment="Center"
-                               Foreground="#222"
-                               TextWrapping="Wrap"
-                               TextAlignment="Center"
-                               MaxWidth="110"/>
+                                       FontWeight="Bold" 
+                                       FontSize="15"
+                                       Margin="0,10,0,0"
+                                       HorizontalAlignment="Center"
+                                       Foreground="#222"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"
+                                       MaxWidth="110"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
         <!-- Affichage de l'équipe -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <ItemsControl Name="EquipeList">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <Image Source="{Binding ImageFace}" Width="60" Height="60"/>
-                            <Button Content="Retirer" Click="Retirer_Click"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <TextBlock Name="PointsText" Margin="20,0"/>
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+            <TextBlock x:Name="PointsText" 
+                       Margin="0,0,0,10" 
+                       FontWeight="Bold" 
+                       FontSize="16" 
+                       TextAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="120">
+                <ItemsControl x:Name="EquipeList">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="10" Background="#EFEFEF" Padding="5">
+                                <StackPanel>
+                                    <Image Source="{Binding ImageFace}" Width="60" Height="60" HorizontalAlignment="Center"/>
+                                    <Button Content="Retirer" Click="Retirer_Click" Margin="0,5,0,0" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
+
+        <!-- Bouton Retour -->
         <Button Content="Retour" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20"
                 Click="Retour_Click"/>
     </Grid>

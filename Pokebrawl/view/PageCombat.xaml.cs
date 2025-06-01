@@ -164,12 +164,47 @@ namespace Pokebrawl.view
         }
         private void UseBall_Click(object sender, RoutedEventArgs e)
         {
-            // Décrémente le nombre de balls du joueur, tente capture, utilise le tour
-            // Si capture réussie : ajoute le Pokémon à l'équipe (si place)
-            // Sinon : tour de l'adversaire
-            MessageBox.Show("Tentative de capture (à implémenter)");
-            _isPlayerTurn = false;
-            EnemyTurn();
+            if (AppData.Joueur.Balls <= 0)
+            {
+                MessageBox.Show("Vous n'avez plus de Pokéballs ");
+                return;
+            }
+
+            // Décrémente le nombre de Pokéballs
+            AppData.Joueur.Balls--;
+
+            // Calcul basique de la probabilité de capture
+            // Plus les PV sont bas, plus les chances de capture sont élevées
+            double captureChance = 0.2 + (1.0 - (double)_session.CurrentEnemyPokemon.PV / _session.CurrentEnemyPokemon.PV) * 0.8;
+            Random rand = new Random();
+            bool captureSuccess = rand.NextDouble() < captureChance;
+
+            if (captureSuccess)
+            {
+                if (AppData.Joueur.Equipe.Pokemons.Count >= Equipe.MaxPokemons)
+                {
+                    MessageBox.Show($"Capture réussie, mais votre équipe est pleine ");
+                }
+                else if (AppData.Joueur.Equipe.PointsUtilises + _session.CurrentEnemyPokemon.CoutEquipe > Equipe.MaxPoints)
+                {
+                    MessageBox.Show($"Capture réussie, mais vous n'avez pas assez de points pour ajouter ce Pokémon à votre équipe");
+                }
+                else
+                {
+                    // Ajouter une copie du Pokémon ennemi à l'équipe du joueur
+                    var clone = _session.CurrentEnemyPokemon;
+                    AppData.Joueur.Equipe.Pokemons.Add(clone);
+                    MessageBox.Show($"{_session.CurrentEnemyPokemon.Nom} capturé avec succès ");
+                }
+
+                Victory();
+            }
+            else
+            {
+                MessageBox.Show($"{_session.CurrentEnemyPokemon.Nom} s'est libéré ");
+                _isPlayerTurn = false;
+                EnemyTurn();
+            }
         }
 
         private void Victory()

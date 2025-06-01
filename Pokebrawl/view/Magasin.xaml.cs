@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Pokebrawl.model;
 
 namespace Pokebrawl.view
 {
-    /// <summary>
-    /// Logique d'interaction pour Magasin.xaml
-    /// </summary>
     public partial class PageMagasin : Page
     {
         private Joueur _joueur;
@@ -44,16 +31,15 @@ namespace Pokebrawl.view
 
         private void Acheter_Click(object sender, RoutedEventArgs e)
         {
-            var btn = sender as Button;
-            var item = btn.Tag as MagasinItem;
-            if (item == null) return;
+            if (sender is not Button btn) return;
+            if (btn.Tag is not MagasinItem item) return;
+
             if (_joueur.Argent < item.Prix)
             {
                 MessageBox.Show("Pas assez d'argent !");
                 return;
             }
 
-            // Achat d'une Potion => choisir le Pokémon à soigner
             if (item.Type == ItemType.Potion)
             {
                 var choixPokemonWindow = new ChoixPokemonWindow(_joueur.Equipe.Pokemons);
@@ -62,7 +48,6 @@ namespace Pokebrawl.view
                     var pokemon = choixPokemonWindow.PokemonSelectionne;
                     if (pokemon != null)
                     {
-                        // Soigner le Pokémon (exemple : PV max)
                         pokemon.PV = pokemon.PVMax;
                         _joueur.Argent -= item.Prix;
                         _joueur.Inventaire.Ajouter(item.Nom, 1);
@@ -71,7 +56,6 @@ namespace Pokebrawl.view
                     }
                 }
             }
-            // Achat d'une Ball
             else if (item.Type == ItemType.Ball)
             {
                 _joueur.Argent -= item.Prix;
@@ -83,8 +67,8 @@ namespace Pokebrawl.view
 
         private void Continuer_Click(object sender, RoutedEventArgs e)
         {
-            // On reprend la série de combats là où on en était
             _mainFrame.Navigate(new PageCombat(_mainFrame, _joueur));
         }
     }
 }
+
