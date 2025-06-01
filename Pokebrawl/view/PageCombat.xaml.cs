@@ -164,18 +164,21 @@ namespace Pokebrawl.view
         }
         private void UseBall_Click(object sender, RoutedEventArgs e)
         {
-            if (AppData.Joueur.Balls <= 0)
+            // Vérifie si le joueur possède une Ball dans l'inventaire
+            if (!AppData.Joueur.Inventaire.Possede("Ball") && !AppData.Joueur.Inventaire.Possede("Poké Ball"))
             {
-                MessageBox.Show("Vous n'avez plus de Pokéballs ");
+                MessageBox.Show("Vous n'avez plus de Ball !");
                 return;
             }
 
-            // Décrémente le nombre de Pokéballs
-            AppData.Joueur.Balls--;
+            // Retire une Ball du bon type
+            if (AppData.Joueur.Inventaire.Possede("Ball"))
+                AppData.Joueur.Inventaire.Retirer("Ball");
+            else if (AppData.Joueur.Inventaire.Possede("Poké Ball"))
+                AppData.Joueur.Inventaire.Retirer("Poké Ball");
 
             // Calcul basique de la probabilité de capture
-            // Plus les PV sont bas, plus les chances de capture sont élevées
-            double captureChance = 0.2 + (1.0 - (double)_session.CurrentEnemyPokemon.PV / _session.CurrentEnemyPokemon.PV) * 0.8;
+            double captureChance = 0.2 + (1.0 - (double)_session.CurrentEnemyPokemon.PV / _session.CurrentEnemyPokemon.PVMax) * 0.8;
             Random rand = new Random();
             bool captureSuccess = rand.NextDouble() < captureChance;
 
