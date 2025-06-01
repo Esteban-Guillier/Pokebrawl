@@ -9,7 +9,7 @@
     <Grid>
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="image/fond/shop.png" Stretch="Fill"/>
+                <ImageBrush ImageSource="image/fond/fond-magasin2.jpg" Stretch="Fill"/>
             </Grid.Background>
             <StackPanel Margin="40">
                 <TextBlock Text="Magasin" FontSize="32" FontWeight="Bold" Foreground="DarkBlue" HorizontalAlignment="Center"/>
