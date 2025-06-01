@@ -8,13 +8,11 @@
       Title="Magasin" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="image/fond/shop.png" Stretch="Fill"/>
-        </Grid.Background>
-
-        <StackPanel Margin="40">
-            <TextBlock Text="Magasin" FontSize="32" FontWeight="Bold" Foreground="DarkBlue" HorizontalAlignment="Center"/>
-
-            <TextBlock Name="ArgentText" Margin="0,20,0,10" FontSize="20" HorizontalAlignment="Center"/>
+                <ImageBrush ImageSource="image/fond/fond-magasin2.jpg" Stretch="Fill"/>
+            </Grid.Background>
+            <StackPanel Margin="40">
+                <TextBlock Text="Magasin" FontSize="32" FontWeight="Bold" Foreground="DarkBlue" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Joueur.Argent, StringFormat='Argent : {0} ₽'}" Margin="0,20,0,10" FontSize="20" HorizontalAlignment="Center"/>
 
             <ItemsControl Name="ShopItemsList">
                 <ItemsControl.ItemTemplate>
