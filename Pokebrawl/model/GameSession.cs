@@ -12,7 +12,9 @@ namespace Pokebrawl.model
         public int Money { get; set; } = 0;
         public List<Pokemon> Team { get; }
         private int _currentPlayerIndex = 0;
-        public Pokemon CurrentPlayerPokemon => Team[_currentPlayerIndex];
+
+        private Pokemon _currentPlayerPokemon;
+        public Pokemon CurrentPlayerPokemon => _currentPlayerPokemon;
         public Pokemon CurrentEnemyPokemon { get; private set; }
         public bool IsBossFight => CombatNumber % 10 == 0;
         private Random rng = new();
@@ -31,6 +33,13 @@ namespace Pokebrawl.model
                 CurrentEnemyPokemon = GenerateRandomPokemon();
 
             CombatNumber++;
+        }
+        public void SwitchToPokemon(Pokemon nouveau)
+        {
+            if (Team.Contains(nouveau) && nouveau.PV > 0)
+            {
+                _currentPlayerPokemon = nouveau;
+            }
         }
 
         public bool SwitchToNextAlivePlayerPokemon()

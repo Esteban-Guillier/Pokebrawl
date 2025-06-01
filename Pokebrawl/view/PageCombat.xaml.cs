@@ -107,6 +107,32 @@ namespace Pokebrawl.view
                 AttackPanel.Children.Add(switchBtn);
             }
         }
+
+        private void SwitchPkmn_Click(object sender, RoutedEventArgs e)
+        {
+            // Liste des Pokémon vivants sauf celui actuellement en combat
+            var remplaçants = _session.Team.Where(p => p.PV > 0 && p != _session.CurrentPlayerPokemon).ToList();
+
+            if (remplaçants.Count == 0)
+            {
+                MessageBox.Show("Aucun autre Pokémon disponible !");
+                return;
+            }
+
+            var choixWindow = new ChoixPokemonWindow(remplaçants);
+            if (choixWindow.ShowDialog() == true)
+            {
+                var choisi = choixWindow.PokemonSelectionne;
+                if (choisi != null)
+                {
+                    _session.SwitchToPokemon(choisi);
+                    MessageBox.Show($"Vous avez envoyé {choisi.Nom} !");
+                    _isPlayerTurn = false;
+                    RefreshUI();
+                    EnemyTurn();
+                }
+            }
+        }
         private void EnemyTurn()
         {
             var enemy = _session.CurrentEnemyPokemon;
@@ -235,18 +261,5 @@ namespace Pokebrawl.view
             // Retour menu ou page Game Over
             _mainFrame.Navigate(new PageGameOver(_mainFrame));
         }
-        private void SwitchPkmn_Click(object sender, RoutedEventArgs e)
-        {
-            
-            if (_session.SwitchToNextAlivePlayerPokemon())
-            {
-                MessageBox.Show("Changement de Pokémon !");
-                RefreshUI();
-            }
-            else
-            {
-                MessageBox.Show("Aucun autre Pokémon disponible !");
-            }
         }
     }
-}
