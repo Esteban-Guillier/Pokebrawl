@@ -49,7 +49,7 @@ namespace Pokebrawl.model
                 // Vérifie l'évolution
                 if (PeutEvoluer() && this.Niveau >= NiveauEvolution)
                 {
-                    Evoluer();
+                    Evoluer(this);
                 }
                 // Vérifie capacité à apprendre
                 var nouvelle = ChercheNouvelleAttaque();
@@ -73,17 +73,53 @@ namespace Pokebrawl.model
         {
             return Niveau * 20;
         }
-        private bool PeutEvoluer() => this.Nom == "Salamèche" && Niveau >= 16; // Par exemple
-        private void Evoluer()
+        private bool PeutEvoluer()
         {
-            var data = PokemonDatabase.GetData(Evolution);
-            if (data != null)
+            // Vérifie si le Pokémon a une évolution définie
+            if (string.IsNullOrEmpty(this.Evolution))
+                return false;
+
+            // Vérifie si le niveau est suffisant
+            return (this.Niveau >= this.NiveauEvolution && this.Evolution !=null);
+        }
+        public void Evoluer(Pokemon pokemon)
+        {
+            // Vérifie si le niveau est suffisant pour évoluer
+            if (pokemon.Niveau >= pokemon.NiveauEvolution && !string.IsNullOrEmpty(pokemon.Evolution))
             {
-                Nom = data.Nom;
-                ImageFace = data.ImageFace;
-                ImageDos = data.ImageDos;
-                PVMax += 20; // bonus d'évolution
-                // Ajoute/maj attaques etc.
+                Console.WriteLine($"{pokemon.Nom} évolue en {pokemon.Evolution} !");
+
+                // Récupère le Pokémon dans la base correspondant à l'évolution
+                if (PokemonDatabase.Data.TryGetValue(pokemon.Evolution, out Pokemon evolutionData))
+                {
+                    // Copie les infos de l'évolution
+                    pokemon.Nom = evolutionData.Nom;
+                    pokemon.Numero = evolutionData.Numero;
+                    pokemon.Types = new List<TypePokemon>(evolutionData.Types);
+                    pokemon.PVMax = evolutionData.PVMax;
+                    pokemon.PV = pokemon.PVMax;
+                    pokemon.Attaque = evolutionData.Attaque;
+                    pokemon.Defense = evolutionData.Defense;
+                    pokemon.AttaqueSpe = evolutionData.AttaqueSpe;
+                    pokemon.DefenseSpe = evolutionData.DefenseSpe;
+                    pokemon.Vitesse = evolutionData.Vitesse;
+                    pokemon.Stade = evolutionData.Stade;
+                    pokemon.ImageFace = evolutionData.ImageFace;
+                    pokemon.ImageDos = evolutionData.ImageDos;
+                    pokemon.Description = evolutionData.Description;
+                    pokemon.NiveauEvolution = evolutionData.NiveauEvolution;
+                    pokemon.Evolution = evolutionData.Evolution;
+
+                    // Tu peux aussi merger ou remplacer les attaques si nécessaire
+                }
+                else
+                {
+                    Console.WriteLine($"Erreur : données d'évolution pour {pokemon.Evolution} introuvables.");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{pokemon.Nom} ne peut pas encore évoluer.");
             }
         }
         private Attaque ChercheNouvelleAttaque()

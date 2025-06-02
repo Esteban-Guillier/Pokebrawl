@@ -266,7 +266,7 @@ namespace Pokebrawl.view
             int attaquesAvant = playerPkmn.Attaques.Count;
 
             // L'apprentissage/évolution/ajout de capacité sera géré via l'événement dans GainExp
-            playerPkmn.GainExp(20);
+            playerPkmn.GainExp(2000);
 
             // Gestion du level up
             if (playerPkmn.Niveau > niveauAvant)
