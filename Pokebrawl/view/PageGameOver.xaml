@@ -7,9 +7,44 @@
         mc:Ignorable="d"
         Title="PageGameOver" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="image/fond/GameOver.jpg" Stretch="Fill"/>
+        </Grid.Background>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Game Over" FontSize="40" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            <Button Content="Retour au menu" Width="180" Height="40" Click="RetourMenu_Click"/>
+            <TextBlock Text="Vous êtes KO !" 
+                       FontSize="48"
+                       FontWeight="Bold"
+                       Foreground="Red"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="0" Opacity="0.7"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock Text="Vos Pokémon n'ont plus la force de continuer..." 
+                       FontSize="20"
+                       Foreground="White"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="0" Opacity="0.8"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock Text="Mais chaque défaite est une nouvelle leçon sur la route des dresseurs !" 
+                       FontSize="18"
+                       Foreground="#FFE0C000"
+                       FontWeight="Normal"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,30"/>
+            <Button Content="Retour au menu" 
+                    Width="200" Height="45" 
+                    Background="#FF1976D2"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    Click="RetourMenu_Click"/>
         </StackPanel>
     </Grid>
 </Window>
