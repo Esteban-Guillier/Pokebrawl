@@ -69,7 +69,10 @@ namespace Pokebrawl.model
             }
         }
 
-        private int ExpPourNiveauSuivant() => 100 + (Niveau - 1) * 50;
+        public int ExpPourNiveauSuivant()
+        {
+            return Niveau * 20;
+        }
         private bool PeutEvoluer() => this.Nom == "Salamèche" && Niveau >= 16; // Par exemple
         private void Evoluer()
         {
