@@ -19,10 +19,19 @@ namespace Pokebrawl.view
     /// </summary>
     public partial class PageGameOver : Window
     {
+        private Frame _mainFrame;
+
         public PageGameOver(Frame mainFrame)
         {
             InitializeComponent();
-            // Optionnel : logique fin de partie
+            _mainFrame = mainFrame;
+        }
+
+        private void RetourMenu_Click(object sender, RoutedEventArgs e)
+        {
+            // Ouvre la page du menu principal dans le mainFrame puis ferme la fenêtre GameOver
+            _mainFrame.Navigate(new Menu(_mainFrame));
+            this.Close();
+
         }
     }
-}
