@@ -61,7 +61,9 @@ namespace Pokebrawl.model
                     }
                     else
                     {
-                        // Proposer UI pour remplacer attaque (à implémenter, popup)
+                        // Appelle l'événement pour demander le remplacement
+                        PokemonEvents.OnDemandeRemplacementCapacite?.Invoke(this, nouvelle);
+                        // Ne rien ajouter, attend la page pour effectuer le remplacement
                     }
                 }
             }
@@ -81,10 +83,35 @@ namespace Pokebrawl.model
                 // Ajoute/maj attaques etc.
             }
         }
-        private Attaque ChercheNouvelleAttaque() { /* Retourne une nouvelle attaque à ce niveau si dispo */ return null; }
-    
+        private Attaque ChercheNouvelleAttaque()
+        {
+            // On cherche la première attaque de LevelUpMoves qui correspond au niveau actuel
+            // et que le Pokémon n'a pas déjà
+            foreach (var lvlMove in LevelUpMoves)
+            {
+                // Conditions :
+                // - ce niveau n'a pas encore été dépassé
+                // - attaque pas déjà connue (par Nom)
+                if (lvlMove.Level == this.Niveau
+                    && !this.Attaques.Any(a => a.Nom == lvlMove.Move.Nom))
+                {
+                    // On retourne une COPIE de l'attaque à apprendre
+                    return new Attaque
+                    {
+                        Nom = lvlMove.Move.Nom,
+                        Type = lvlMove.Move.Type,
+                        Puissance = lvlMove.Move.Puissance,
+                        PP = lvlMove.Move.PPMax,
+                        PPMax = lvlMove.Move.PPMax,
+                        Description = lvlMove.Move.Description
+                    };
+                }
+            }
+            // Sinon, rien à apprendre à ce niveau
+            return null;
+        }
 
-    public Pokemon Clone()
+        public Pokemon Clone()
         {
             return new Pokemon
             {

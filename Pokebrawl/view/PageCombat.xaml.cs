@@ -260,22 +260,41 @@ namespace Pokebrawl.view
             MessageBox.Show("Victoire !");
             AppData.Joueur.Argent += 50;
 
-            var sessionPokemon = _session.CurrentPlayerPokemon;
-            var joueurPokemon = AppData.Joueur.Equipe.Pokemons.FirstOrDefault(p => p.Nom == sessionPokemon.Nom);
+            var playerPkmn = _session.CurrentPlayerPokemon;
+            int niveauAvant = playerPkmn.Niveau;
+            string nomAvant = playerPkmn.Nom;
+            int attaquesAvant = playerPkmn.Attaques.Count;
 
-            if (joueurPokemon != null)
+            // L'apprentissage/évolution/ajout de capacité sera géré via l'événement dans GainExp
+            playerPkmn.GainExp(20);
+
+            // Gestion du level up
+            if (playerPkmn.Niveau > niveauAvant)
             {
-                joueurPokemon.GainExp(20);
+                MessageBox.Show($"{playerPkmn.Nom} monte au niveau {playerPkmn.Niveau} !");
             }
-            // Gestion du level up, apprentissage capacité, évolution...
+
+            // Gestion de l'évolution
+            if (playerPkmn.Nom != nomAvant)
+            {
+                MessageBox.Show($"{nomAvant} évolue en {playerPkmn.Nom} !");
+            }
+
+            // Nouvelle attaque apprise (si moins de 4 attaques)
+            if (playerPkmn.Attaques.Count > attaquesAvant)
+            {
+                var nouvelleAttaque = playerPkmn.Attaques.Last();
+                MessageBox.Show($"{playerPkmn.Nom} apprend une nouvelle attaque : {nouvelleAttaque.Nom} !");
+            }
+            // Si il y a déjà 4 attaques, la navigation vers PageRemplacementAttaque sera déclenchée
+            // automatiquement par l'événement PokemonEvents.OnDemandeRemplacementCapacite
+
             if (_session.IsBossFight)
             {
-                // Aller à la page magasin
                 _mainFrame.Navigate(new PageMagasin(_mainFrame, AppData.Joueur));
             }
             else
             {
-                // Prochain combat
                 _session.NextCombat();
                 RefreshUI();
             }

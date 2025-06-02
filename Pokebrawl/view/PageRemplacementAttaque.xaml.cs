@@ -34,13 +34,18 @@ namespace Pokebrawl.view
         private void Remplacer_Click(object sender, RoutedEventArgs e)
         {
             var selected = AttaquesList.SelectedItem as Attaque;
-            if (selected != null)
+            if (selected == null)
             {
-                _pokemon.Attaques.Remove(selected);
-                _pokemon.Attaques.Add(_nouvelle);
-                // Retour au combat
-                _mainFrame.GoBack();
+                MessageBox.Show("Sélectionnez une attaque à remplacer !");
+                return;
             }
+            int idx = _pokemon.Attaques.IndexOf(selected);
+            if (idx != -1)
+            {
+                _pokemon.Attaques[idx] = _nouvelle;
+                MessageBox.Show($"{_pokemon.Nom} a appris {_nouvelle.Nom} à la place de {selected.Nom} !");
+            }
+            _mainFrame.GoBack();
         }
     }
 }
