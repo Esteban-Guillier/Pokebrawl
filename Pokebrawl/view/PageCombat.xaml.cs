@@ -304,8 +304,7 @@ namespace Pokebrawl.view
         {
             MessageBox.Show("Défaite !");
             // Retour menu ou page Game Over
-            var gameOver = new PageGameOver(_mainFrame);
-            gameOver.ShowDialog();
+            _mainFrame.Navigate(new PageGameOver(_mainFrame));
         }
         }
     }

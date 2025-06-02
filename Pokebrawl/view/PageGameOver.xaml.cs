@@ -17,7 +17,7 @@ namespace Pokebrawl.view
     /// <summary>
     /// Logique d'interaction pour PageGameOver.xaml
     /// </summary>
-    public partial class PageGameOver : Window
+    public partial class PageGameOver : Page
     {
         private Frame _mainFrame;
 
@@ -31,7 +31,7 @@ namespace Pokebrawl.view
         {
             // Ouvre la page du menu principal dans le mainFrame puis ferme la fenêtre GameOver
             _mainFrame.Navigate(new Menu(_mainFrame));
-            this.Close();
 
         }
     }
+}
