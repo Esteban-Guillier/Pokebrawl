@@ -22,9 +22,13 @@ namespace Pokebrawl.view
             _mainFrame = mainFrame;
             _joueur = joueur;
             ShopItemsList.ItemsSource = Items;
+            UpdateArgent();
         }
 
-
+        private void UpdateArgent()
+        {
+            ArgentText.Text = $"Argent : {_joueur.Argent} ₽";
+        }
         private void Acheter_Click(object sender, RoutedEventArgs e)
         {
             if (sender is not Button btn) return;

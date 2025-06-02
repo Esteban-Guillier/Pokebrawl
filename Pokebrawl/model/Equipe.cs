@@ -11,6 +11,6 @@ namespace Pokebrawl.model
         public List<Pokemon> Pokemons { get; set; } = new();
         public int PointsUtilises => Pokemons.Sum(p => p.CoutEquipe);
         public static int MaxPokemons { get; } = 6;
-        public static int MaxPoints { get; } = 10;
+        public static int MaxPoints { get; } = 20;
     }
 }
