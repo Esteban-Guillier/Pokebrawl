@@ -12,15 +12,15 @@ namespace Pokebrawl.view
         private GameSession _session;
         public List<MagasinItem> Items = new()
         {
-            new MagasinItem { Nom = "Potion", Image = "/view/image/icon/Ball.png", Prix = 200, Type = ItemType.Potion },
+            new MagasinItem { Nom = "Potion", Image = "/view/image/icon/potionheal.png", Prix = 200, Type = ItemType.Potion },
             new MagasinItem { Nom = "Ball", Image = "/view/image/icon/Ball.png", Prix = 150, Type = ItemType.Ball }
         };
 
-        public PageMagasin(Frame mainFrame, GameSession session)
+        public PageMagasin(Frame mainFrame, Joueur joueur)
         {
             InitializeComponent();
             _mainFrame = mainFrame;
-            _session = session;
+            _joueur = joueur;
             ShopItemsList.ItemsSource = Items;
         }
 
