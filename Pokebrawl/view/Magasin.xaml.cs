@@ -53,6 +53,7 @@ namespace Pokebrawl.view
                         _joueur.Inventaire.Ajouter(item.Nom, 1);
  
                         MessageBox.Show($"{pokemon.Nom} est soigné !");
+                        UpdateArgent();
                     }
                 }
             }
@@ -61,11 +62,19 @@ namespace Pokebrawl.view
                 _joueur.Argent -= item.Prix;
                 _joueur.Inventaire.Ajouter(item.Nom, 1);
                 MessageBox.Show("Ball ajoutée à l'inventaire !");
+                UpdateArgent();
             }
         }
 
         private void Continuer_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var pkmn in _joueur.Equipe.Pokemons)
+            {
+                foreach (var attaque in pkmn.Attaques)
+                {
+                    attaque.PP = attaque.PPMax;
+                }
+            }
             _mainFrame.Navigate(new PageCombat(_mainFrame, new GameSession(_joueur.Equipe.Pokemons)));
         }
     }

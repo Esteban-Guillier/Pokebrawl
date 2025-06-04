@@ -26,9 +26,6 @@ namespace Pokebrawl.model
 
         public void NextCombat()
         {
-            _currentPlayerIndex = Team.FindIndex(p => p.PV > 0);
-            if (_currentPlayerIndex == -1 || Team.Count == 0)
-                throw new Exception("Aucun Pokémon vivant dans l’équipe pour combattre !");
 
             if (IsBossFight)
                 CurrentEnemyPokemon = GenerateBoss(CombatNumber / 10);

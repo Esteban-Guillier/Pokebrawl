@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pokebrawl.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,14 +22,21 @@ namespace Pokebrawl.view
     {
         private Frame _mainFrame;
 
-        public PageGameOver(Frame mainFrame)
+        Joueur _joueur;
+        public PageGameOver(Frame mainFrame , Joueur joueur)
         {
             InitializeComponent();
             _mainFrame = mainFrame;
+            _joueur = joueur;
         }
 
         private void RetourMenu_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var pkmn in _joueur.Equipe.Pokemons)
+            {
+                    pkmn.PV = pkmn.PVMax;
+
+            }
             // Ouvre la page du menu principal dans le mainFrame puis ferme la fenêtre GameOver
             _mainFrame.Navigate(new Menu(_mainFrame));
 

@@ -39,14 +39,14 @@ namespace Pokebrawl.view
                 if (_session.CurrentPlayerPokemon == null || _session.CurrentPlayerPokemon.PV <= 0)
                 {
                     MessageBox.Show("Aucun Pokémon valide pour combattre !");
-                    _mainFrame.Navigate(new PageGameOver(_mainFrame));
+                    _mainFrame.Navigate(new PageGameOver(_mainFrame, AppData.Joueur));
                     return;
                 }
             }
             catch
             {
                 MessageBox.Show("Aucun Pokémon valide pour combattre !");
-                _mainFrame.Navigate(new PageGameOver(_mainFrame));
+                _mainFrame.Navigate(new PageGameOver(_mainFrame, AppData.Joueur));
                 return;
             }
             RefreshUI();
@@ -60,7 +60,7 @@ namespace Pokebrawl.view
             if (playerPkmn == null || playerPkmn.PV <= 0)
             {
                 MessageBox.Show("Aucun Pokémon valide pour combattre !");
-                _mainFrame.Navigate(new PageGameOver(_mainFrame));
+                _mainFrame.Navigate(new PageGameOver(_mainFrame, AppData.Joueur));
                 return;
             }
 
@@ -266,7 +266,7 @@ namespace Pokebrawl.view
             int attaquesAvant = playerPkmn.Attaques.Count;
 
             // L'apprentissage/évolution/ajout de capacité sera géré via l'événement dans GainExp
-            playerPkmn.GainExp(2000);
+            playerPkmn.GainExp(_session.CurrentPlayerPokemon.ExpDonnee);
 
             // Gestion du level up
             if (playerPkmn.Niveau > niveauAvant)
@@ -304,7 +304,7 @@ namespace Pokebrawl.view
         {
             MessageBox.Show("Défaite !");
             // Retour menu ou page Game Over
-            _mainFrame.Navigate(new PageGameOver(_mainFrame));
+            _mainFrame.Navigate(new PageGameOver(_mainFrame, AppData.Joueur));
         }
         }
     }
