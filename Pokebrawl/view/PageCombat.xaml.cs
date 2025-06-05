@@ -29,6 +29,7 @@ namespace Pokebrawl.view
             InitializeComponent();
             _mainFrame = mainFrame;
             _session = session;
+            AppData.Joueur.Inventaire.Ajouter("Ball", 5);
             PokemonEvents.OnDemandeRemplacementCapacite = (poke, newMove) =>
             {
                 _mainFrame.Navigate(new PageRemplacementAttaque(_mainFrame, poke, newMove));
@@ -190,14 +191,7 @@ namespace Pokebrawl.view
 
             // Choisit une attaque aléatoire de l'adversaire
             var atk = enemy.Attaques.Where(a => a.PP > 0).OrderBy(_ => Guid.NewGuid()).FirstOrDefault();
-            if (atk != null)
-            {
-                atk.PP--;
-                player.PV -= atk.Puissance;
-                if (player.PV < 0) player.PV = 0;
-                MessageBox.Show($"{enemy.Nom} utilise {atk.Nom} !");
-            }
-            else
+            if (atk == null)
             {
                 MessageBox.Show($"{enemy.Nom} n'a plus de PP !");
             }
@@ -241,6 +235,21 @@ namespace Pokebrawl.view
 
             if (player.PV <= 0)
             {
+                if (_session.Team.Count > 0)
+                {
+                    if (_session.SwitchToNextAlivePlayerPokemon())
+                    {
+                        MessageBox.Show("Votre Pokémon est KO ! Envoi du suivant.");
+                        _isPlayerTurn = true;
+                        RefreshUI();
+                        return;
+                    }
+                    else
+                    {
+                        Defeat();
+                        return;
+                    }
+                }
                 player.PV = 0;
                 Defeat();
             }
@@ -344,10 +353,12 @@ namespace Pokebrawl.view
                 }
                 else
                 {
+                    List<Pokemon> starter = PageEquipe.starters;
                     // Ajouter une copie du Pokémon ennemi à l'équipe du joueur
                     var clone = _session.CurrentEnemyPokemon.Clone();
                     AppData.Joueur.Equipe.Pokemons.Add(clone);
                     MessageBox.Show($"{_session.CurrentEnemyPokemon.Nom} capturé avec succès ");
+                    GameSession.AjouterAuxStartersSiNouveau(clone, starter);
                 }
 
                 Victory();
@@ -370,13 +381,26 @@ namespace Pokebrawl.view
             string nomAvant = playerPkmn.Nom;
             int attaquesAvant = playerPkmn.Attaques.Count;
 
-            // L'apprentissage/évolution/ajout de capacité sera géré via l'événement dans GainExp
-            playerPkmn.GainExp(_session.CurrentPlayerPokemon.ExpDonnee);
+            int baseExp = _session.CurrentEnemyPokemon.ExpDonnee;
+            int bonusCombat = _session.CombatsTermines * 2;
+            int totalExp = baseExp + bonusCombat;
+
+            playerPkmn.GainExp(totalExp);
+
 
             // Gestion du level up
             if (playerPkmn.Niveau > niveauAvant)
             {
-                MessageBox.Show($"{playerPkmn.Nom} monte au niveau {playerPkmn.Niveau} !");
+                playerPkmn.PVMax += 2;
+                playerPkmn.Attaque += 1;
+                playerPkmn.Defense += 1;
+                playerPkmn.AttaqueSpe += 1;
+                playerPkmn.DefenseSpe += 1;
+                playerPkmn.Vitesse += 1;
+
+                MessageBox.Show($"{playerPkmn.Nom} a gagné en puissance !\n" +
+                    $"PV: {playerPkmn.PVMax}, Atk: {playerPkmn.Attaque}, Def: {playerPkmn.Defense},\n" +
+                    $"AtkSpe: {playerPkmn.AttaqueSpe}, DefSpe: {playerPkmn.DefenseSpe}, Vit: {playerPkmn.Vitesse}");
             }
 
             // Gestion de l'évolution
@@ -396,10 +420,12 @@ namespace Pokebrawl.view
 
             if (_session.IsBossFight)
             {
+                _session.CombatsTermines++;
                 _mainFrame.Navigate(new PageMagasin(_mainFrame, AppData.Joueur));
             }
             else
             {
+                _session.CombatsTermines++;
                 _session.NextCombat();
                 RefreshUI();
             }

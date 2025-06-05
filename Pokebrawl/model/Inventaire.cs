@@ -17,7 +17,6 @@ namespace Pokebrawl.model
             else
                 ObjetsPossedes[nomObjet] = quantite;
         }
-
         public bool Possede(string nomObjet) => ObjetsPossedes.ContainsKey(nomObjet) && ObjetsPossedes[nomObjet] > 0;
         public bool Retirer(string nomObjet, int quantite = 1)
         {

@@ -150,6 +150,22 @@ namespace Pokebrawl.model
             return null;
         }
 
+        public void MonterNiveauAuto(int niveauCible)
+        {
+            
+            while (Niveau < niveauCible)
+            {
+                Niveau++;
+                PVMax += 2; PV += 2;
+                Attaque += 1;
+                Defense += 1;
+                AttaqueSpe += 1;
+                DefenseSpe += 1;
+                Vitesse += 1;
+                ExpDonnee += 3;
+                
+            }
+        }
         public Pokemon Clone()
         {
             return new Pokemon
