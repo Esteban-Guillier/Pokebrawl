@@ -414,6 +414,7 @@ namespace Pokebrawl.view
             {
                 var nouvelleAttaque = playerPkmn.Attaques.Last();
                 MessageBox.Show($"{playerPkmn.Nom} apprend une nouvelle attaque : {nouvelleAttaque.Nom} !");
+                RefreshUI();
             }
             // Si il y a déjà 4 attaques, la navigation vers PageRemplacementAttaque sera déclenchée
             // automatiquement par l'événement PokemonEvents.OnDemandeRemplacementCapacite

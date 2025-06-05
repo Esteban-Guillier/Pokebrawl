@@ -39,12 +39,23 @@ namespace Pokebrawl.view
                 MessageBox.Show("Sélectionnez une attaque à remplacer !");
                 return;
             }
+
+            if (_nouvelle == null)
+            {
+                MessageBox.Show("Aucune nouvelle attaque à apprendre !");
+                return;
+            }
+
             int idx = _pokemon.Attaques.IndexOf(selected);
             if (idx != -1)
             {
                 _pokemon.Attaques[idx] = _nouvelle;
+                AttaquesList.ItemsSource = null;
+                AttaquesList.ItemsSource = _pokemon.Attaques;
+
                 MessageBox.Show($"{_pokemon.Nom} a appris {_nouvelle.Nom} à la place de {selected.Nom} !");
             }
+
             _mainFrame.GoBack();
         }
     }
