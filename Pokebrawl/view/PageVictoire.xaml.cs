@@ -36,7 +36,6 @@ namespace Pokebrawl.view
                 pkmn.PV = pkmn.PVMax;
 
             }
-            // Navigue vers la page de menu principal
             _mainFrame.Navigate(new Menu(_mainFrame));
         }
     }

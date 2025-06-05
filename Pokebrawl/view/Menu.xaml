@@ -35,12 +35,10 @@
     </Page.Resources>
 
     <Grid>
-        <!-- Fond plein écran -->
         <Grid.Background>
             <ImageBrush ImageSource="image/fond/intro.png" Stretch="UniformToFill"/>
         </Grid.Background>
 
-        <!-- Contenu centré -->
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="#80000000" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Style="{StaticResource MenuButtonStyle}" Content="Équipe" Click="Equipe_Click"/>

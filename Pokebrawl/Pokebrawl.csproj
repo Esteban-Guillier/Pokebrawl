@@ -23,6 +23,8 @@
     <None Remove="view\image\Fond\Fond-equipe.png" />
     <None Remove="view\image\Fond\fond-magasin2.jpg" />
     <None Remove="view\image\Fond\GameOver.jpg" />
+    <None Remove="view\image\Fond\Intro-magicarpe.png" />
+    <None Remove="view\image\Fond\intro-pikachu.jpg" />
     <None Remove="view\image\Fond\Intro.jpg" />
     <None Remove="view\image\Fond\Intro.png" />
     <None Remove="view\image\Fond\Page intro.png" />
@@ -535,6 +537,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Fond\GameOver.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\Intro-magicarpe.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\intro-pikachu.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Fond\Intro.jpg">

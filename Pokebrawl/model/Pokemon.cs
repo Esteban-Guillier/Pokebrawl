@@ -110,7 +110,6 @@ namespace Pokebrawl.model
                     pokemon.NiveauEvolution = evolutionData.NiveauEvolution;
                     pokemon.Evolution = evolutionData.Evolution;
 
-                    // Tu peux aussi merger ou remplacer les attaques si nécessaire
                 }
                 else
                 {
@@ -124,8 +123,6 @@ namespace Pokebrawl.model
         }
         private Attaque ChercheNouvelleAttaque()
         {
-            // On cherche la première attaque de LevelUpMoves qui correspond au niveau actuel
-            // et que le Pokémon n'a pas déjà
             foreach (var lvlMove in LevelUpMoves)
             {
                 // Conditions :

@@ -37,7 +37,6 @@ namespace Pokebrawl.view
                     pkmn.PV = pkmn.PVMax;
 
             }
-            // Ouvre la page du menu principal dans le mainFrame puis ferme la fenêtre GameOver
             _mainFrame.Navigate(new Menu(_mainFrame));
 
         }

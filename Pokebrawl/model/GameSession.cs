@@ -22,7 +22,6 @@ namespace Pokebrawl.model
         public GameSession(List<Pokemon> team)
         {
             Team = team;
-            // Sélectionne le premier vivant
             _currentPlayerIndex = Team.FindIndex(p => p.PV > 0);
         }
 
@@ -34,7 +33,6 @@ namespace Pokebrawl.model
 
     if (!dejaPresent)
     {
-        // Clone du Pokémon capturé avec stats pour un starter niveau 5
         var clone = new Pokemon
         {
             Numero = capture.Numero,

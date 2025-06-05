@@ -15,7 +15,6 @@ namespace Pokebrawl.model
         public int PP { get; set; }
         public string Description { get; set; }
 
-        // Méthode pour les attaques de boss si besoin
         public static System.Collections.Generic.List<Attaque> GetBossAttaques()
         {
             return new System.Collections.Generic.List<Attaque>
