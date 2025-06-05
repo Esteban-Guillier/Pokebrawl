@@ -16,7 +16,7 @@ namespace Pokebrawl.model
         private int _currentPlayerIndex = 0;
         public Pokemon CurrentPlayerPokemon => Team.Count > 0 && _currentPlayerIndex >= 0 && _currentPlayerIndex < Team.Count ? Team[_currentPlayerIndex] : null;
         public Pokemon CurrentEnemyPokemon { get; private set; }
-        public bool IsBossFight => CombatNumber % 10 == 0;
+        public bool IsBossFight  => CombatNumber % 10 == 0;
         private Random rng = new();
 
         public GameSession(List<Pokemon> team)

@@ -30,7 +30,8 @@ namespace Pokebrawl.view
             _mainFrame = mainFrame;
             _session = session;
             AppData.Joueur.Inventaire.Ajouter("Ball", 5);
-            PokemonEvents.OnDemandeRemplacementCapacite = (poke, newMove) =>
+            
+                PokemonEvents.OnDemandeRemplacementCapacite = (poke, newMove) =>
             {
                 _mainFrame.Navigate(new PageRemplacementAttaque(_mainFrame, poke, newMove));
             };
@@ -57,8 +58,24 @@ namespace Pokebrawl.view
         {
             var playerPkmn = _session.CurrentPlayerPokemon;
             var enemyPkmn = _session.CurrentEnemyPokemon;
+            _session.CombatsTermines = 100;
+            if (_session.CombatsTermines == 100)
+            {
+                enemyPkmn = Pokemon.BossEtage100.Clone();
 
-            if (playerPkmn == null || playerPkmn.PV <= 0)
+                if (_session.IsBossFight)
+                {
+                    var bossClone = _session.CurrentEnemyPokemon.Clone();
+                    bossClone.Niveau = 60;
+
+                    if (!PageEquipe.starters.Any(p => p.Nom == bossClone.Nom))
+                    {
+                        PageEquipe.starters.Add(bossClone);
+                        MessageBox.Show($"{bossClone.Nom} a été ajouté à vos starters !");
+                    }
+                }
+            }
+                if (playerPkmn == null || playerPkmn.PV <= 0)
             {
                 MessageBox.Show("Aucun Pokémon valide pour combattre !");
                 _mainFrame.Navigate(new PageGameOver(_mainFrame, AppData.Joueur));
@@ -414,11 +431,11 @@ namespace Pokebrawl.view
             {
                 var nouvelleAttaque = playerPkmn.Attaques.Last();
                 MessageBox.Show($"{playerPkmn.Nom} apprend une nouvelle attaque : {nouvelleAttaque.Nom} !");
-                RefreshUI();
             }
             // Si il y a déjà 4 attaques, la navigation vers PageRemplacementAttaque sera déclenchée
             // automatiquement par l'événement PokemonEvents.OnDemandeRemplacementCapacite
-
+            
+           
             if (_session.IsBossFight)
             {
                 _session.CombatsTermines++;

@@ -166,6 +166,22 @@ namespace Pokebrawl.model
                 
             }
         }
+        public static Pokemon BossEtage100 => new Pokemon
+        {
+            Nom = "Kirby",
+            Niveau = 95,
+            PV = 600,
+            PVMax = 600,
+            Attaque = 200,
+            Defense = 200,
+            AttaqueSpe = 200,
+            DefenseSpe = 200,
+            Vitesse = 200,
+            Types = new List<TypePokemon> { TypePokemon.Psy },
+            ImageFace = "/view/image/Pokemon_Asset/Front/150.png",
+            CoutEquipe = 4,
+            ExpDonnee = 5000,
+        };
         public Pokemon Clone()
         {
             return new Pokemon
