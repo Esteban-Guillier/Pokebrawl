@@ -34,7 +34,7 @@
         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1"
                     HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,80,0,0">
             <TextBlock Name="EnemyPkmnName" FontWeight="Bold" FontSize="16" Foreground="White"/>
-            <ProgressBar x:Name="EnemyPVBar" Width="140" Height="20" Foreground="Red" Background="Gray"/>
+            <ProgressBar x:Name="EnemyPVBar"  Width="140" Height="20" Foreground="Red" Background="Gray"/>
             <TextBlock Name="EnemyPkmnLvl" FontSize="12" Foreground="White"/>
         </StackPanel>
 

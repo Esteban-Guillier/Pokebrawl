@@ -133,11 +133,13 @@ namespace Pokebrawl.model
                 Attaques = new List<Attaque>
     {
         new Attaque { Nom = "Griffe", Type = TypePokemon.Normal, PP = 35, PPMax = 35, Puissance = 6, Description = "Attaque physique rapide." },
+        new Attaque { Nom = "Flammèche", Type = TypePokemon.Feu, PP = 25, PPMax = 25, Puissance = 10, Description = "Petite attaque de feu." },
+        new Attaque { Nom = "Flammèche", Type = TypePokemon.Feu, PP = 25, PPMax = 25, Puissance = 10, Description = "Petite attaque de feu." },
         new Attaque { Nom = "Flammèche", Type = TypePokemon.Feu, PP = 25, PPMax = 25, Puissance = 10, Description = "Petite attaque de feu." }
     },
                 LevelUpMoves = new List<Pokemon.LevelUpMove>
     {
-        new Pokemon.LevelUpMove { Level = 10, Move = new Attaque{ Nom = "Flamme", Type = TypePokemon.Feu, PP = 15, PPMax = 15, Puissance = 15, Description = "Attaque de feu améliorée." } }
+        new Pokemon.LevelUpMove { Level = 6, Move = new Attaque{ Nom = "Flamme", Type = TypePokemon.Feu, PP = 15, PPMax = 15, Puissance = 15, Description = "Attaque de feu améliorée." } }
     }
             },
             ["Reptincel"] = new Pokemon

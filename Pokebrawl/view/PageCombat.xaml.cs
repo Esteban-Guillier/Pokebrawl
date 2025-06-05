@@ -100,6 +100,7 @@ namespace Pokebrawl.view
 
             // Affichage des attaques
             AttackPanel.Children.Clear();
+
             if (playerPkmn != null)
             {
                 foreach (var atk in playerPkmn.Attaques)
@@ -107,8 +108,12 @@ namespace Pokebrawl.view
                     var btn = new Button
                     {
                         Content = $"{atk.Nom} (PP {atk.PP}/{atk.PPMax})",
-                        Margin = new Thickness(5)
+                        Margin = new Thickness(5),
+                        Background = GetColorBrushFromType(atk.Type),
+                        Foreground = Brushes.White,
+                        FontWeight = FontWeights.Bold
                     };
+
                     btn.Click += (s, e) => Attack_Click(atk);
                     AttackPanel.Children.Add(btn);
                 }
@@ -128,6 +133,32 @@ namespace Pokebrawl.view
                 switchBtn.Click += SwitchPkmn_Click;
                 AttackPanel.Children.Add(switchBtn);
             }
+        }
+
+        private Brush GetColorBrushFromType(TypePokemon type)
+        {
+            return type switch
+            {
+                TypePokemon.Feu => Brushes.OrangeRed,
+                TypePokemon.Eau => Brushes.DodgerBlue,
+                TypePokemon.Plante => Brushes.ForestGreen,
+                TypePokemon.Electrik => Brushes.Gold,
+                TypePokemon.Ténèbres => Brushes.DarkSlateGray,
+                TypePokemon.Poison => Brushes.Purple,
+                TypePokemon.Spectre => Brushes.Indigo,
+                TypePokemon.Vol => Brushes.LightGray,
+                TypePokemon.Insecte => Brushes.Green,
+                TypePokemon.Combat => Brushes.SaddleBrown,
+                TypePokemon.Roche => Brushes.Brown,
+                TypePokemon.Acier => Brushes.LightSlateGray,
+                TypePokemon.Sol => Brushes.SandyBrown,
+                TypePokemon.Glace => Brushes.LightBlue,
+                TypePokemon.Psy => Brushes.MediumPurple,
+                TypePokemon.Fée => Brushes.HotPink,
+                TypePokemon.Dragon => Brushes.MediumSlateBlue,
+                TypePokemon.Normal => Brushes.Gray,
+                _ => Brushes.Gray
+            };
         }
 
         private void SwitchPkmn_Click(object sender, RoutedEventArgs e)
@@ -171,33 +202,106 @@ namespace Pokebrawl.view
                 MessageBox.Show($"{enemy.Nom} n'a plus de PP !");
             }
 
+            atk.PP--;
+
+            int attaqueStat = enemy.Attaque;
+            int defenseStat = player.Defense;
+            int puissance = atk.Puissance;
+
+            // STAB
+            double stab = enemy.Types.Contains(atk.Type) ? 1.5 : 1.0;
+
+            // Coefficient de type
+            double typeCoef = 1.0;
+            foreach (var defType in player.Types)
+            {
+                typeCoef *= TypeChart.GetCoef(atk.Type, defType);
+            }
+
+            // Calcul des dégâts
+            double facteur = ((2.0 * enemy.Niveau / 5 + 2) * puissance * (double)attaqueStat / defenseStat) / 50 + 2;
+            int degats = (int)(facteur * stab * typeCoef);
+            if (degats <= 0) degats = 1;
+
+            player.PV -= degats;
+            if (player.PV < 0) player.PV = 0;
+
+            // Message d'efficacité
+            string msg = $"{enemy.Nom} utilise {atk.Nom} !\n";
+            if (typeCoef == 0)
+                msg += "Cela n’a aucun effet !";
+            else if (typeCoef < 1)
+                msg += "Ce n’est pas très efficace...";
+            else if (typeCoef > 1)
+                msg += "C’est super efficace !";
+            else
+                msg += "C’est efficace.";
+
+            MessageBox.Show(msg);
+
             if (player.PV <= 0)
             {
-                if (_session.SwitchToNextAlivePlayerPokemon())
-                {
-                    MessageBox.Show("Votre Pokémon est KO ! Envoi du suivant.");
-                    _isPlayerTurn = true;
-                    RefreshUI();
-                    return;
-                }
-                else
-                {
-                    Defeat();
-                    return;
-                }
+                player.PV = 0;
+                Defeat();
             }
-            _isPlayerTurn = true;
-            RefreshUI();
+            else
+            {
+                _isPlayerTurn = true;
+                RefreshUI();
+            }
         }
         private void Attack_Click(Attaque attaque)
         {
-            if(!_isPlayerTurn) return;
-            if (attaque.PP <= 0) { MessageBox.Show("Plus de PP !"); return; }
-            attaque.PP--;
-            _session.CurrentEnemyPokemon.PV -= attaque.Puissance; // Ajoute un champ Power à Attaque si besoin
-            if (_session.CurrentEnemyPokemon.PV <= 0)
+            if (!_isPlayerTurn) return;
+
+            if (attaque.PP <= 0)
             {
-                _session.CurrentEnemyPokemon.PV = 0;
+                MessageBox.Show("Plus de PP !");
+                return;
+            }
+
+            attaque.PP--;
+
+            var attaquant = _session.CurrentPlayerPokemon;
+            var defenseur = _session.CurrentEnemyPokemon;
+
+            int attaqueStat = attaquant.Attaque;
+            int defenseStat = defenseur.Defense;
+            int puissance = attaque.Puissance;
+
+            // STAB : le Pokémon a-t-il le même type que l'attaque ?
+            double stab = attaquant.Types.Contains(attaque.Type) ? 1.5 : 1.0;
+
+            // Coefficients de type (attaque vs tous les types de défense)
+            double typeCoef = 1.0;
+            foreach (var defType in defenseur.Types)
+            {
+                typeCoef *= TypeChart.GetCoef(attaque.Type, defType);
+            }
+
+            // Calcul des dégâts
+            double facteur = ((2.0 * attaquant.Niveau / 5 + 2) * puissance * (double)attaqueStat / defenseStat) / 50 + 2;
+            int degats = (int)(facteur * stab * typeCoef);
+            if (degats <= 0) degats = 1;
+
+            defenseur.PV -= degats;
+            if (defenseur.PV < 0) defenseur.PV = 0;
+
+            // Message d'efficacité
+            string msg = $"{attaquant.Nom} utilise {attaque.Nom} !\n";
+            if (typeCoef == 0)
+                msg += "Cela n’a aucun effet !";
+            else if (typeCoef < 1)
+                msg += "Ce n’est pas très efficace...";
+            else if (typeCoef > 1)
+                msg += "C’est super efficace !";
+            else
+                msg += "C’est efficace.";
+
+            MessageBox.Show(msg);
+
+            if (defenseur.PV <= 0)
+            {
                 Victory();
             }
             else
@@ -207,6 +311,7 @@ namespace Pokebrawl.view
                 EnemyTurn();
             }
         }
+
         private void UseBall_Click(object sender, RoutedEventArgs e)
         {
             // Vérifie si le joueur possède une Ball dans l'inventaire
