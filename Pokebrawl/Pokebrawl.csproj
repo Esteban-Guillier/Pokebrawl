@@ -30,6 +30,7 @@
     <None Remove="view\image\Fond\PC2.png" />
     <None Remove="view\image\Fond\poke-intro.png" />
     <None Remove="view\image\Fond\Titre.png" />
+    <None Remove="view\image\Fond\Win.jpg" />
     <None Remove="view\image\icon\Ball.png" />
     <None Remove="view\image\icon\potion.png" />
     <None Remove="view\image\icon\potionheal.png" />
@@ -486,6 +487,7 @@
     <None Remove="view\image\Pokemon_asset\Icon\149.png" />
     <None Remove="view\image\Pokemon_asset\Icon\150.png" />
     <None Remove="view\image\Pokemon_asset\Icon\151.png" />
+    <None Remove="view\image\Pokemon_asset\Kirby\bossKirby.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -554,6 +556,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Fond\Titre.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Fond\Win.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\icon\Ball.png">
@@ -1919,6 +1924,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="view\image\Pokemon_asset\Icon\151.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="view\image\Pokemon_asset\Kirby\bossKirby.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

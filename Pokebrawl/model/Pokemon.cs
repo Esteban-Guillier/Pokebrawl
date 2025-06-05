@@ -30,8 +30,8 @@ namespace Pokebrawl.model
         public int CoutEquipe { get; set; } = 2;
 
         public string Evolution { get; set; } = string.Empty;
-        public int? NiveauEvolution { get; set; } // Niveau d'évolution
-        public List<LevelUpMove> LevelUpMoves { get; set; } = new(); // Nouvelles attaques par niveau
+        public int? NiveauEvolution { get; set; }
+        public List<LevelUpMove> LevelUpMoves { get; set; } = new();
 
         public class LevelUpMove
         {
@@ -178,7 +178,7 @@ namespace Pokebrawl.model
             DefenseSpe = 200,
             Vitesse = 200,
             Types = new List<TypePokemon> { TypePokemon.Psy },
-            ImageFace = "/view/image/Pokemon_Asset/Front/150.png",
+            ImageFace = "/view/image/Pokemon_Asset/Kirby/bossKirby.png",
             CoutEquipe = 4,
             ExpDonnee = 5000,
         };
