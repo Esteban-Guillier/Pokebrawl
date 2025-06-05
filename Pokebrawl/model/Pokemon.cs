@@ -163,6 +163,7 @@ namespace Pokebrawl.model
                 
             }
         }
+        
         public static Pokemon BossEtage100 => new Pokemon
         {
             Nom = "Kirby",
@@ -179,6 +180,7 @@ namespace Pokebrawl.model
             CoutEquipe = 4,
             ExpDonnee = 5000,
         };
+        
         public Pokemon Clone()
         {
             return new Pokemon

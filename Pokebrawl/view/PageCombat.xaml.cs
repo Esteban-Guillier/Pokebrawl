@@ -58,7 +58,7 @@ namespace Pokebrawl.view
         {
             var playerPkmn = _session.CurrentPlayerPokemon;
             var enemyPkmn = _session.CurrentEnemyPokemon;
-            _session.CombatsTermines = 100;
+            _session.CombatsTermines = 0;
             if (_session.CombatsTermines == 100)
             {
                 enemyPkmn = Pokemon.BossEtage100.Clone();
