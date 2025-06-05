@@ -33,13 +33,11 @@
     </Page.Resources>
 
     <Grid>
-        <!-- Fond -->
         <Grid.Background>
             <ImageBrush ImageSource="image/Fond/Avatar.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
 
-        <!-- Titre -->
         <TextBlock Text="Choisissez votre avatar"
                    FontSize="36"
                    FontWeight="Bold"
@@ -49,7 +47,6 @@
                    Margin="0,40,0,0"
                    Effect="{StaticResource Shadow}"/>
 
-        <!-- Liste des avatars -->
         <ItemsControl x:Name="AvatarList"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"

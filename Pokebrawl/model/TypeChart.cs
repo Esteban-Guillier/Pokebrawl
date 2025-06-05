@@ -8,7 +8,6 @@ namespace Pokebrawl.model
 {
     public static class TypeChart
     {
-        // Tableau simplifié, à compléter selon le besoin
         public static readonly Dictionary<TypePokemon, Dictionary<TypePokemon, double>> Degats = new()
         {
             { TypePokemon.Normal, new Dictionary<TypePokemon, double>

@@ -12,12 +12,10 @@
     </Page.Resources>
 
     <Grid>
-        <!-- Fond plein écran -->
         <Grid.Background>
             <ImageBrush ImageSource="image/Fond/Combat.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
-        <!-- Grille principale -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
@@ -28,7 +26,6 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
-        <!-- Pokémon ENNEMI -->
         <Image Name="EnemyPkmnImg" Width="252" Height="242" Stretch="Uniform" Grid.Column="1" Grid.ColumnSpan="2" Margin="205,54,-68,156" Grid.RowSpan="2"/>
 
         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1"
@@ -38,7 +35,6 @@
             <TextBlock Name="EnemyPkmnLvl" FontSize="12" Foreground="White"/>
         </StackPanel>
 
-        <!-- Pokémon JOUEUR -->
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal"
                     VerticalAlignment="Top" Margin="215,73,143,0" Grid.ColumnSpan="3">
             <Image x:Name="PlayerPkmnImg" Width="248" Height="228" Stretch="Uniform"/>
@@ -49,14 +45,12 @@
             </StackPanel>
         </StackPanel>
 
-        <!-- Avatar joueur -->
         <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="40,60,0,0" CornerRadius="10" BorderThickness="2"
                 BorderBrush="White" Background="#40FFFFFF" Effect="{StaticResource DropShadow}">
             <Image Name="AvatarImg" Width="80" Height="80" Stretch="UniformToFill"/>
         </Border>
 
-        <!-- Panneau des attaques -->
         <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical"
                     HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,30">
             <TextBlock Text="Attaques :" FontWeight="Bold" FontSize="16" Foreground="White"/>

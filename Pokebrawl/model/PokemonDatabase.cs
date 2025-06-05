@@ -133,8 +133,6 @@ namespace Pokebrawl.model
                 Attaques = new List<Attaque>
     {
         new Attaque { Nom = "Griffe", Type = TypePokemon.Normal, PP = 35, PPMax = 35, Puissance = 6, Description = "Attaque physique rapide." },
-        new Attaque { Nom = "Flammèche", Type = TypePokemon.Feu, PP = 25, PPMax = 25, Puissance = 10, Description = "Petite attaque de feu." },
-        new Attaque { Nom = "Flammèche", Type = TypePokemon.Feu, PP = 25, PPMax = 25, Puissance = 10, Description = "Petite attaque de feu." },
         new Attaque { Nom = "Flammèche", Type = TypePokemon.Feu, PP = 25, PPMax = 25, Puissance = 10, Description = "Petite attaque de feu." }
     },
                 LevelUpMoves = new List<Pokemon.LevelUpMove>

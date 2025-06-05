@@ -8,17 +8,12 @@
       Title="PageIntro">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="image/fond/intro.jpg" Stretch="Fill"/>
+            <ImageBrush ImageSource="image/fond/intro-pikachu.jpg" Stretch="Fill"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Pour l'image du titre -->
             <RowDefinition Height="*"/>
-            <!-- Espace vide (élastique) -->
             <RowDefinition Height="Auto"/>
-            <!-- Pour le bouton -->
-            <RowDefinition Height="50"/>
-            <!-- Optionnel: espace en bas -->
         </Grid.RowDefinitions>
 
         <Image Source="image/Fond/Titre.png"
@@ -34,8 +29,7 @@
                 Foreground="White"
                 BorderBrush="Transparent"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Grid.Row="2"
+                Grid.Row="1"
                 Click="Jouer_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">

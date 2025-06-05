@@ -30,8 +30,8 @@ namespace Pokebrawl.model
         public int CoutEquipe { get; set; } = 2;
 
         public string Evolution { get; set; } = string.Empty;
-        public int? NiveauEvolution { get; set; } // Niveau d'évolution
-        public List<LevelUpMove> LevelUpMoves { get; set; } = new(); // Nouvelles attaques par niveau
+        public int? NiveauEvolution { get; set; }
+        public List<LevelUpMove> LevelUpMoves { get; set; } = new();
 
         public class LevelUpMove
         {
@@ -110,7 +110,6 @@ namespace Pokebrawl.model
                     pokemon.NiveauEvolution = evolutionData.NiveauEvolution;
                     pokemon.Evolution = evolutionData.Evolution;
 
-                    // Tu peux aussi merger ou remplacer les attaques si nécessaire
                 }
                 else
                 {
@@ -124,8 +123,6 @@ namespace Pokebrawl.model
         }
         private Attaque ChercheNouvelleAttaque()
         {
-            // On cherche la première attaque de LevelUpMoves qui correspond au niveau actuel
-            // et que le Pokémon n'a pas déjà
             foreach (var lvlMove in LevelUpMoves)
             {
                 // Conditions :
@@ -166,6 +163,7 @@ namespace Pokebrawl.model
                 
             }
         }
+        
         public static Pokemon BossEtage100 => new Pokemon
         {
             Nom = "Kirby",
@@ -178,10 +176,11 @@ namespace Pokebrawl.model
             DefenseSpe = 200,
             Vitesse = 200,
             Types = new List<TypePokemon> { TypePokemon.Psy },
-            ImageFace = "/view/image/Pokemon_Asset/Front/150.png",
+            ImageFace = "/view/image/Pokemon_Asset/Kirby/bossKirby.png",
             CoutEquipe = 4,
             ExpDonnee = 5000,
         };
+        
         public Pokemon Clone()
         {
             return new Pokemon

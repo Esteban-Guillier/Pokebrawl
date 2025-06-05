@@ -1,5 +1,4 @@
-﻿using Pokebrawl.model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,34 +10,33 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Pokebrawl.model;
 
 namespace Pokebrawl.view
 {
     /// <summary>
-    /// Logique d'interaction pour PageGameOver.xaml
+    /// Logique d'interaction pour PageVictoire.xaml
     /// </summary>
-    public partial class PageGameOver : Page
+    public partial class PageVictoire : Page
     {
         private Frame _mainFrame;
 
         Joueur _joueur;
-        public PageGameOver(Frame mainFrame , Joueur joueur)
+        public PageVictoire(Frame mainFrame, Joueur joueur)
         {
             InitializeComponent();
-            _mainFrame = mainFrame;
-            _joueur = joueur;
         }
 
         private void RetourMenu_Click(object sender, RoutedEventArgs e)
         {
             foreach (var pkmn in _joueur.Equipe.Pokemons)
             {
-                    pkmn.PV = pkmn.PVMax;
+                pkmn.PV = pkmn.PVMax;
 
             }
             _mainFrame.Navigate(new Menu(_mainFrame));
-
         }
     }
 }
