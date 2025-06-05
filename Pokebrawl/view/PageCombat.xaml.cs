@@ -58,7 +58,6 @@ namespace Pokebrawl.view
         {
             var playerPkmn = _session.CurrentPlayerPokemon;
             var enemyPkmn = _session.CurrentEnemyPokemon;
-            _session.CombatsTermines = 100;
             if (_session.CombatsTermines == 100)
             {
                 enemyPkmn = Pokemon.BossEtage100.Clone();
@@ -230,7 +229,7 @@ namespace Pokebrawl.view
             }
 
             // Calcul des dégâts
-            double facteur = ((2.0 * enemy.Niveau / 5 + 2) * puissance * (double)attaqueStat / defenseStat) / 50 + 2;
+            double facteur = ((2.0 * enemy.Niveau + 2) * puissance * (double)attaqueStat / defenseStat) / 40 ;
             int degats = (int)(facteur * stab * typeCoef);
             if (degats <= 0) degats = 1;
 
