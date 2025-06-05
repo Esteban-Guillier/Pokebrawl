@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokebrawl", "Pokebrawl\Pokebrawl.csproj", "{097C3E55-A3BE-4A1A-BA46-4F1D41B82F34}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PokeBrawlSetup", "PokeBrawlSetup\PokeBrawlSetup.vdproj", "{C3DEDABC-743C-4ECA-3D10-1821AA6CA94E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,13 @@ Global
 		{097C3E55-A3BE-4A1A-BA46-4F1D41B82F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{097C3E55-A3BE-4A1A-BA46-4F1D41B82F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{097C3E55-A3BE-4A1A-BA46-4F1D41B82F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DEDABC-743C-4ECA-3D10-1821AA6CA94E}.Debug|Any CPU.ActiveCfg = Debug
+		{C3DEDABC-743C-4ECA-3D10-1821AA6CA94E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75C9801C-EDB9-48AE-B9A0-63FA6E2DBB3D}
 	EndGlobalSection
 EndGlobal
