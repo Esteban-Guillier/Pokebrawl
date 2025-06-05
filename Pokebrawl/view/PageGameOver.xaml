@@ -31,12 +31,6 @@
                     <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="0" Opacity="0.8"/>
                 </TextBlock.Effect>
             </TextBlock>
-            <TextBlock Text="Mais chaque défaite est une nouvelle leçon sur la route des dresseurs !" 
-                       FontSize="18"
-                       Foreground="#FFE0C000"
-                       FontWeight="Normal"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,30"/>
             <Button Content="Retour au menu" 
                     Width="200" Height="45" 
                     Background="#FF1976D2"
